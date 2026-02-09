@@ -12,6 +12,7 @@
             --card-bg: #FFFFFF;
             --accent: #FFB347;
             --accent-soft: #FFE4C4;
+            --roadmap-bg: #0F2238;
         }
 
         body {
@@ -19,6 +20,82 @@
             font-family: Arial, sans-serif;
             background-color: var(--light-bg);
             color: #2E2E2E;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background-color: #FFFFFF;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-weight: bold;
+            font-size: 18px;
+            color: var(--navy);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #333;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            transition: width 0.2s ease-out;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            color: var(--navy);
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: bold;
+            color: #0A1A2F;
+        }
+
+        @media (max-width: 720px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
         }
 
         /* HERO */
@@ -30,17 +107,17 @@
         }
 
         .hero h1 {
-            font-size: 46px;
+            font-size: 44px;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 19px;
+            font-size: 18px;
             margin-bottom: 18px;
         }
 
         .hero-tagline {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
             margin-bottom: 8px;
             letter-spacing: 0.14em;
@@ -49,8 +126,11 @@
 
         .hero-note {
             font-size: 14px;
-            opacity: 0.9;
+            opacity: 0.95;
             margin-bottom: 22px;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .button {
@@ -62,6 +142,7 @@
             font-size: 15px;
             font-weight: bold;
             border: none;
+            display: inline-block;
         }
 
         .button:hover {
@@ -184,13 +265,62 @@
             color: #333;
         }
 
+        /* ROADMAP */
+        .roadmap-strip {
+            background-color: var(--roadmap-bg);
+            color: white;
+            padding: 32px 20px;
+            margin-top: 30px;
+        }
+
+        .roadmap-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .roadmap-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .roadmap-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .roadmap-step {
+            text-align: center;
+            font-size: 13px;
+            padding: 10px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.04);
+        }
+
+        .roadmap-step.current {
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            color: #0A1A2F;
+            font-weight: bold;
+            border-color: transparent;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--navy);
             color: white;
             padding: 30px 20px;
             text-align: center;
-            margin-top: 40px;
+            margin-top: 0;
+        }
+
+        .footer-accent {
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
         }
 
         footer a {
@@ -213,6 +343,20 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <header class="nav">
+        <div class="nav-inner">
+            <div class="nav-logo">Momma's Pop Shop</div>
+            <nav class="nav-links">
+                <a href="#product">Product</a>
+                <a href="#how">How We Build</a>
+                <a href="#who">Who I Am</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#shop" class="nav-cta">eBay Store</a>
+            </nav>
+        </div>
+    </header>
+
     <!-- HERO -->
     <div class="hero">
         <div class="hero-tagline">Momma's Pop Shop LLC</div>
@@ -230,7 +374,7 @@
     </div>
 
     <!-- PRODUCT LINE -->
-    <div class="section">
+    <div id="product" class="section">
         <div class="section-subtitle">Product Line</div>
         <h2>Modular Botanical Workstation Systems</h2>
         <div class="highlight-strip">
@@ -245,8 +389,21 @@
         </p>
     </div>
 
-    <!-- HOW WE BUILD -->
+    <!-- COMING SOON -->
     <div class="section alt">
+        <div class="section-subtitle">Coming Soon</div>
+        <h2>Our First Workstation Layout</h2>
+        <p>
+            Our first modular layout focuses on a compact tabletop setup with space for tools, containers, and a clean working area. 
+            The design is built around simple ideas: a clear surface, smart storage, and parts that can be rearranged as your needs change.
+        </p>
+        <p>
+            We are currently testing different tray shapes, organizer layouts, and mounting options to find what feels best in real, everyday use.
+        </p>
+    </div>
+
+    <!-- HOW WE BUILD -->
+    <div id="how" class="section alt" style="margin-top: 40px;">
         <div class="section-subtitle">How We Build</div>
         <h2>Practical Design With Real Experience Behind It</h2>
         <p>
@@ -284,7 +441,7 @@
     </div>
 
     <!-- WHO I AM -->
-    <div class="section">
+    <div id="who" class="section">
         <div class="section-subtitle">Who I Am</div>
         <h2>The Person Behind Momma’s Pop Shop</h2>
 
@@ -297,7 +454,7 @@
                 </p>
                 <p>
                     That mix of craftsmanship, money management, and long‑term commitment is what I bring into this business. 
-                    I care about details, I care about numbers, and I care about making things that actually help people in their day‑to‑day life’s.
+                    I care about details, I care about numbers, and I care about making things that actually help people in their day‑to‑day lives.
                 </p>
             </div>
 
@@ -321,8 +478,22 @@
         </div>
     </div>
 
+    <!-- ROADMAP -->
+    <div id="roadmap" class="roadmap-strip">
+        <div class="roadmap-inner">
+            <div class="roadmap-title">Product Roadmap</div>
+            <div class="roadmap-steps">
+                <div class="roadmap-step">Concept</div>
+                <div class="roadmap-step current">Prototype</div>
+                <div class="roadmap-step">Refinement</div>
+                <div class="roadmap-step">Small Batch</div>
+                <div class="roadmap-step">Launch</div>
+            </div>
+        </div>
+    </div>
+
     <!-- RETAIL / EBAY -->
-    <div class="section alt">
+    <div id="shop" class="section alt">
         <div class="section-subtitle">Retail Side</div>
         <h2>Our eBay Store Supports the Build</h2>
         <p>
@@ -338,12 +509,14 @@
     </div>
 
     <!-- FOOTER -->
+    <div class="footer-accent"></div>
     <footer>
         <p>
-            <a href="#">Home</a> |
-            <a href="#">About</a> |
-            <a href="#">Contact</a> |
-            <a href="https://www.ebay.com/str/mommaspopshopllc" target="_blank">Shop</a>
+            <a href="#product">Product</a> |
+            <a href="#how">How We Build</a> |
+            <a href="#who">Who I Am</a> |
+            <a href="#roadmap">Roadmap</a> |
+            <a href="#shop">Shop</a>
         </p>
         <p>contact@mommaspopshop.com</p>
         <p>© 2026 Momma’s Pop Shop LLC • Columbus, Ohio</p>
