@@ -13,6 +13,7 @@
             --accent: #FFB347;
             --accent-soft: #FFE4C4;
             --roadmap-bg: #0F2238;
+            --danger: #D9534F;
         }
 
         body {
@@ -106,13 +107,13 @@
         }
 
         .hero h1 {
-            font-size: 44px;
+            font-size: 40px;
             margin-bottom: 10px;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 18px;
+            font-size: 17px;
+            margin-bottom: 16px;
         }
 
         .hero-tagline {
@@ -127,7 +128,7 @@
             font-size: 14px;
             opacity: 0.95;
             margin-bottom: 22px;
-            max-width: 720px;
+            max-width: 640px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -314,6 +315,65 @@
             border-color: transparent;
         }
 
+        /* FOLLOW FORM */
+        .follow-wrapper {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            padding: 22px 20px 24px;
+        }
+
+        .follow-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 800px) {
+            .follow-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .follow-note {
+            font-size: 14px;
+            color: #444;
+        }
+
+        .follow-form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #444;
+        }
+
+        .follow-form input,
+        .follow-form textarea {
+            width: 100%;
+            padding: 8px 10px;
+            border-radius: 6px;
+            border: 1px solid #CCD2DD;
+            font-size: 14px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .follow-form textarea {
+            resize: vertical;
+            min-height: 70px;
+        }
+
+        .follow-small {
+            font-size: 11px;
+            color: #777;
+            margin-top: 4px;
+        }
+
+        .follow-submit {
+            margin-top: 6px;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--navy);
@@ -357,6 +417,7 @@
                 <a href="#how">How We Build</a>
                 <a href="#who">Who I Am</a>
                 <a href="#roadmap">Roadmap</a>
+                <a href="#follow">Follow</a>
                 <a href="#shop" class="nav-cta">eBay Store</a>
             </nav>
         </div>
@@ -369,9 +430,8 @@
         <p>If your current setup is a folding table covered in random trays, tools, and a prayer that nothing spills, you’re exactly who we’re building for.</p>
 
         <div class="hero-note">
-            Our POP Benchline System is the foundation — a modular, engineered platform for clean, repeatable, small‑scale botanical work.<br><br>
-            Our first release sits right on top of it: <strong>The POP Top Layout</strong>, part of the <strong>Tabletop Soda Pop Series</strong> — a nod to old‑school soda pop and the “Pop” who engineered the system.<br><br>
-            While we build out the product line, our eBay store keeps the lights on and the printers running. Grab great deals, support a small business, and help us bring this system to life.
+            We’re building the <strong>POP Benchline System</strong> — a modular platform for clean, repeatable, small‑scale botanical work.<br><br>
+            Our first layout on that platform is the <strong>POP Top Layout</strong>, part of the <strong>Tabletop Soda Pop Series</strong> — a nod to old‑school soda pop and the “Pop” who engineered the system.
         </div>
 
         <a class="button" href="https://www.ebay.com/str/mommaspopshopllc" target="_blank">
@@ -515,16 +575,44 @@
         </p>
     </div>
 
-    <!-- FOLLOW THE BUILD (PLACEHOLDER) -->
-    <div class="section">
+    <!-- FOLLOW THE BUILD -->
+    <div id="follow" class="section">
         <div class="section-subtitle">Follow The Build</div>
-        <h2>Stay In The Loop</h2>
-        <p>
-            We’re still in the prototype and refinement stage for the POP Top Layout. We’ll be adding a simple way to follow the build and get notified when the first units are ready.
-        </p>
-        <p style="font-size:13px; color:#666;">
-            For now, bookmark this page or check in on our eBay store — updates are coming.
-        </p>
+        <h2>Be First In Line For POP Top</h2>
+
+        <div class="follow-wrapper">
+            <div class="follow-grid">
+                <div class="follow-note">
+                    <p>
+                        We’re still in the prototype and refinement stage for the POP Top Layout. If you want to see how this thing comes together — or be one of the first people we reach out to when we’re ready for real‑world feedback and early units — drop your info here.
+                    </p>
+                    <p>
+                        No spam, no nonsense. Just occasional updates when there’s something real to show.
+                    </p>
+                </div>
+                <div>
+                    <!-- NOTE: Hook this form up to your email service or backend -->
+                    <form class="follow-form" method="post" action="#">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="What should we call you?">
+
+                        <label for="email">Email <span style="color:var(--danger);">*</span></label>
+                        <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+                        <label for="use">What are you working on?</label>
+                        <textarea id="use" name="use" placeholder="Tell us a bit about your setup or what you’d use a workstation like this for."></textarea>
+
+                        <div class="follow-small">
+                            This form doesn’t do anything yet until you connect it to an email service or backend — but the structure is ready.
+                        </div>
+
+                        <div class="follow-submit">
+                            <button type="submit" class="button">Join The Early List</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- FOOTER -->
@@ -535,6 +623,7 @@
             <a href="#how">How We Build</a> |
             <a href="#who">Who I Am</a> |
             <a href="#roadmap">Roadmap</a> |
+            <a href="#follow">Follow</a> |
             <a href="#shop">Shop</a>
         </p>
         <p>contact@mommaspopshop.com</p>
@@ -543,4 +632,3 @@
 
 </body>
 </html>
-
