@@ -15,7 +15,7 @@
         --blue: #1E90FF;
         --light-bg: #F2F4F7;
         --card-bg: #FFFFFF;
-        --accent: #FFB347;      /* warm yellow/orange like your CTA */
+        --accent: #FFB347;      /* warm yellow/orange CTA */
         --accent-soft: #FFE4C4;
         --roadmap-bg: #0F2238;
         --danger: #D9534F;
@@ -108,18 +108,33 @@
         }
     }
 
-    /* HERO */
+    /* HERO – matches screenshot A */
     .hero {
         position: relative;
         padding: 5rem 2rem 4rem;
-        background: #07101F;
+        background: #050C1A; /* deep blue-gray approximated from your screenshot */
         color: #FFFFFF;
         overflow: hidden;
+    }
+
+    .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            radial-gradient(circle at top, rgba(255,255,255,0.10), transparent 55%),
+            radial-gradient(circle at bottom, rgba(30,144,255,0.30), transparent 60%),
+            repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px),
+            repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px);
+        opacity: 0.9;
+        pointer-events: none;
     }
 
     .hero-inner {
         max-width: 1100px;
         margin: 0 auto;
+        position: relative;
+        z-index: 1;
     }
 
     .hero-kicker {
@@ -408,6 +423,7 @@
                 <a href="#who">Who I Am</a>
                 <a href="#roadmap">Roadmap</a>
                 <a href="#follow">Follow</a>
+                <a href="contact.html">Contact</a>
                 <a href="https://www.ebay.com/str/mommaspopshopllc" class="nav-cta">eBay Store</a>
             </nav>
         </div>
@@ -645,4 +661,3 @@
 
 </body>
 </html>
-
