@@ -102,7 +102,47 @@
                 gap: 8px;
             }
         }
+        
+/* HERO BACKGROUND */
+.hero {
+    position: relative;
+    padding: 6rem 2rem;
+    text-align: center;
+}
 
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.06), rgba(0,0,0,0.8)),
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
+    z-index: -1;
+}
+
+/* CTA BUTTON */
+.hero-cta {
+    margin-top: 1.5rem;
+    padding: 0.9rem 2rem;
+    background: #ff4f4f;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* HIGHLIGHT STRIP */
+.highlight-strip {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-left: 4px solid #ff4f4f;
+    margin-bottom: 2rem;
+}
+
+/* SECTION SPACING */
+.section p {
+    margin-bottom: 1.2rem;
+}
+</style>
         /* HERO */
         .hero {
             background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
@@ -429,56 +469,58 @@
         </div>
     </header>
 
- <!-- HERO -->
+<!-- HERO -->
 <div id="hero" class="section hero">
+    <div class="hero-bg"></div>
+
     <h1>POP Benchline System</h1>
 
     <p>
-        A modular platform built for clean, repeatable, small‑scale botanical work. No clutter, no wasted motion — just a setup that works.
+        Built for people who actually do the work. Clean, repeatable, small‑scale botanical setups without the clutter or the gimmicks.
     </p>
 
-    <p>
-        Our first release is the <strong>POP Top Layout</strong> — nothing fancy or overpriced, just solid engineering built to last.
+    <p class="hero-sub">
+        First up: the <strong>POP Top Layout</strong> — simple, solid, and built the way it should’ve been built the first time.
     </p>
 
-    <a href="#product" class="button">Explore the System</a>
+    <a href="https://www.ebay.com/usr/mommaspopshop" class="button hero-cta">Visit the Store</a>
 </div>
 
- <!-- PRODUCT LINE -->
+<!-- PRODUCT LINE -->
 <div id="product" class="section">
     <div class="section-subtitle">Product Line</div>
-    <h2>POP Benchline System</h2>
+    <h2>The System</h2>
 
     <div class="highlight-strip">
-        <p><strong>POP Benchline System</strong>: a modular platform built for clean, repeatable, small‑scale botanical work.</p>
-        <p>The first collection on the system is the <strong>Tabletop Soda Pop Series</strong>.</p>
+        <p><strong>POP Benchline System</strong>: a modular platform built to keep your workflow clean and consistent.</p>
+        <p>The first collection is the <strong>Tabletop Soda Pop Series</strong>.</p>
         <p>Its first release is the <strong>POP Top Layout</strong>.</p>
     </div>
 
     <p>
-        The layout gives every tool and container a defined place. Less clutter, less chaos, less wasted motion — more time doing the actual work.
+        The layout gives every tool and container a defined place. No wasted motion, no guessing, no “where the hell does this go.” Just a bench that works with you instead of against you.
     </p>
 
     <p>
-        No gimmicks. No over‑designed nonsense. Just a system that grows with your workflow and holds up over time.
+        We don’t add parts to look clever. If it doesn’t improve the workflow, it doesn’t make the cut. That’s the whole philosophy.
     </p>
 </div>
 
-  <!-- COMING SOON -->
+<!-- COMING SOON -->
 <div id="coming" class="section">
     <div class="section-subtitle">Coming Soon</div>
     <h2>What’s Next</h2>
 
     <p>
-        We’re expanding the series with additional modules built on the same principles: clean workflow, solid materials, and parts that earn their place.
+        More modules are in the pipeline — built with the same rules: clean workflow, solid materials, and parts that earn their place.
     </p>
 
     <p>
-        Each addition will integrate directly into the system without forcing you to relearn your setup or buy into a new platform.
+        No trend-chasing. No “new version every six months.” When a component is ready, it’s because it’s actually better, not because we needed something to post on social media.
     </p>
 
     <p>
-        More details release as components move from prototype to production.
+        Updates drop as prototypes move into production. No hype, just progress.
     </p>
 </div>
 
