@@ -188,7 +188,31 @@
             color: #6A6A6A;
             margin-bottom: 16px;
         }
+/* SECTION BACKGROUNDS */
+#hero {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+}
 
+#product {
+    background-color: #FFFFFF;
+}
+
+#coming {
+    background-color: #F7F9FC;
+}
+
+#how {
+    background-color: #FFFFFF;
+}
+
+#who {
+    background-color: #F7F9FC;
+}
+
+#follow {
+    background-color: #FFFFFF;
+}
         .section.alt {
             background-color: #FFFFFF;
             border-radius: 16px;
@@ -421,6 +445,17 @@
             margin: 6px 0;
             font-size: 13px;
         }
+        /* SCROLL ANIMATIONS */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
 </head>
 
@@ -459,7 +494,7 @@
 </div>
 
  <!-- PRODUCT LINE -->
-<div id="product" class="section">
+<div id="product" class="section fade-up">
     <div class="section-subtitle">Product Line</div>
     <h2>POP Benchline System</h2>
 
@@ -477,7 +512,7 @@
 </div>
 
   <!-- COMING SOON -->
-<div id="coming" class="section">
+<div id="coming" class="section fade-up">
     <div class="section-subtitle">Coming Soon</div>
     <h2>What’s Next</h2>
 
@@ -495,7 +530,7 @@
 </div>
 
 <!-- HOW WE BUILD -->
-<div id="how" class="section">
+<div id="how" class="section fade-up">
     <div class="section-subtitle">How We Build</div>
     <h2>Built the Right Way</h2>
 
@@ -512,7 +547,7 @@
 </p>
 </div>
         <!-- WHO I AM -->
-    <div id="who" class="section">
+   <div id="who" class="section fade-up">
         <div class="section-subtitle">Who I Am</div>
         <h2>The Person Behind Momma’s Pop Shop</h2>
 
@@ -572,7 +607,7 @@
     </div>
 
     <!-- FOLLOW SECTION -->
-    <div id="follow" class="section">
+   <div id="follow" class="section fade-up">
         <div class="section-subtitle">Stay Connected</div>
         <h2>Join the Early Crew</h2>
 
@@ -636,6 +671,21 @@
             <a href="#follow">Follow</a>
         </p>
     </footer>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
 
 </body>
 </html>
