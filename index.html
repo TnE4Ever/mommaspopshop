@@ -21,12 +21,27 @@
             --danger: #D9534F;
         }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: var(--light-bg);
-            color: #2E2E2E;
-        }
+       body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0A1524;
+    color: #2E2E2E;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at top left, rgba(30,144,255,0.18), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(255,179,71,0.16), transparent 55%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 22px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 22px);
+    opacity: 0.7;
+    pointer-events: none;
+    z-index: -1;
+}
 
         a {
             text-decoration: none;
@@ -188,6 +203,37 @@
             color: #6A6A6A;
             margin-bottom: 16px;
         }
+        /* SECTION BLOCKS + DIVIDERS */
+.section {
+    position: relative;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 40px 24px;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(5, 20, 40, 0.12);
+}
+
+/* keep hero full-bleed */
+#hero.section {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* angled divider above each section (except hero) */
+.section::before {
+    content: "";
+    position: absolute;
+    top: -26px;
+    left: 0;
+    width: 120px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    transform: skewX(-18deg);
+    opacity: 0.9;
+}
 /* SECTION BACKGROUNDS */
 #hero {
     background: linear-gradient(135deg, var(--navy), var(--blue));
@@ -260,14 +306,31 @@
             margin-top: 18px;
         }
 
-        .card {
-            background: var(--card-bg);
-            padding: 18px 18px 20px;
-            border-radius: 12px;
-            text-align: left;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border-top: 4px solid var(--blue);
-        }
+     .card {
+    background: var(--card-bg);
+    padding: 18px 18px 20px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 10px 26px rgba(5, 20, 40, 0.18);
+    border-top: 4px solid var(--blue);
+    transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(5, 20, 40, 0.28);
+}
+.highlight-strip,
+.follow-wrapper {
+    transition: transform 0.22s ease-out, box-shadow 0.22s ease-out;
+    box-shadow: 0 8px 20px rgba(5, 20, 40, 0.12);
+}
+
+.highlight-strip:hover,
+.follow-wrapper:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 34px rgba(5, 20, 40, 0.22);
+}
 
         .card h3 {
             margin-top: 0;
@@ -331,6 +394,17 @@
             background-color: #E9EDF5;
             color: #333;
         }
+        /* SCROLL PROGRESS BAR */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    z-index: 50;
+    transform-origin: left center;
+}
 
         /* ROADMAP */
         .roadmap-strip {
@@ -509,6 +583,8 @@
 </head>
 
 <body>
+<div id="scroll-progress"></div>
+
 
     <!-- NAVBAR -->
     <header class="nav">
@@ -721,6 +797,18 @@
         </p>
     </footer>
 <script>
+document.addEventListener("scroll", () => {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = doc.scrollHeight - doc.clientHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    const bar = document.getElementById("scroll-progress");
+    if (bar) {
+        bar.style.width = progress + "%";
+    }
+});
+</script>
+    <script>
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(".fade-up");
 
