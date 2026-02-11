@@ -3,377 +3,547 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momma's Pop Shop</title>
+    <title>Momma's Pop Shop LLC</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <meta name="description" content="Momma’s Pop Shop builds practical, high-quality hardware with real engineering, craftsmanship, and intention. No gimmicks. No shortcuts. Just solid tools made to be used, not displayed.">
+    <meta name="description" content="Momma’s Pop Shop builds modular botanical workstations with real engineering, lean process thinking, and practical design.">
     <meta name="keywords" content="hardware, tools, engineering, fabrication, craftsmanship, modular workstation, POP Benchline System, Momma’s Pop Shop LLC">
 
-:root {
-    --navy: #0A1A2F;
-    --blue: #1E90FF;
-    --light-bg: #F2F4F7;
-    --card-bg: #FFFFFF;
-    --accent: #FFB347;
-    --accent-soft: #FFE4C4;
-    --roadmap-bg: #0F2238;
-    --danger: #D9534F;
-}
+    <style>
+    :root {
+        --navy: #0A1A2F;
+        --blue: #1E90FF;
+        --light-bg: #F2F4F7;
+        --card-bg: #FFFFFF;
+        --accent: #FFB347;      /* warm yellow/orange like your CTA */
+        --accent-soft: #FFE4C4;
+        --roadmap-bg: #0F2238;
+        --danger: #D9534F;
+    }
 
-/* GLOBAL */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: var(--light-bg);
-    color: #2E2E2E;
-}
+    * {
+        box-sizing: border-box;
+    }
 
-a {
-    text-decoration: none;
-}
+    body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+        background-color: var(--light-bg);
+        color: #2E2E2E;
+    }
 
-/* NAVBAR */
-.nav {
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 
-.nav-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    /* NAVBAR */
+    .nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
 
-.nav-logo {
-    font-weight: bold;
-    font-size: 18px;
-    color: var(--navy);
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-}
-
-.nav-links {
-    display: flex;
-    gap: 18px;
-    align-items: center;
-}
-
-.nav-links a {
-    font-size: 14px;
-    color: #333;
-    position: relative;
-    padding-bottom: 4px;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--blue));
-    transition: width 0.2s ease-out;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.nav-cta {
-    background: linear-gradient(90deg, var(--accent), var(--blue));
-    padding: 8px 16px;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: bold;
-    color: #0A1A2F;
-}
-
-@media (max-width: 720px) {
     .nav-inner {
-        flex-direction: column;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-logo {
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--navy);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .nav-links a {
+        position: relative;
+        padding-bottom: 4px;
+        color: #333;
+    }
+
+    .nav-links a::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--blue));
+        transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .nav-cta {
+        background: linear-gradient(90deg, var(--accent), var(--blue));
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #0A1A2F;
+    }
+
+    @media (max-width: 720px) {
+        .nav-inner {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 8px;
+        }
+    }
+
+    /* HERO */
+    .hero {
+        position: relative;
+        padding: 5rem 2rem 4rem;
+        background: #07101F;
+        color: #FFFFFF;
+        overflow: hidden;
+    }
+
+    .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .hero-kicker {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.8rem;
+        opacity: 0.8;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .hero-body p {
+        margin: 0 0 0.9rem;
+        max-width: 640px;
+    }
+
+    .hero-cta {
+        margin-top: 1.5rem;
+        display: inline-block;
+        padding: 0.9rem 2rem;
+        background: var(--accent);
+        color: #000;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+        max-width: 1100px;
+        margin: 3.5rem auto;
+        padding: 0 2rem;
+    }
+
+    .section-subtitle {
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.8rem;
+        color: #555;
+        margin-bottom: 0.5rem;
+    }
+
+    .section h2 {
+        margin-top: 0;
+        margin-bottom: 1.2rem;
+        font-size: 1.6rem;
+        color: #111827;
+    }
+
+    .section p {
+        margin-bottom: 1rem;
+        line-height: 1.5;
+    }
+
+    /* PRODUCT / COMING SOON */
+    .highlight-strip {
+        background: #FFFFFF;
+        padding: 1.5rem;
+        border-left: 4px solid var(--accent);
+        border-radius: 4px;
+        margin-bottom: 1.8rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    /* HOW WE BUILD */
+    .how-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2.5rem;
         align-items: flex-start;
-        gap: 8px;
     }
-}
 
-/* HERO (BLUEPRINT VERSION) */
-.hero {
-    position: relative;
-    padding: 6rem 2rem;
-    text-align: center;
-    background: #020712;
-    color: white;
-}
+    .how-pill-title {
+        font-weight: 600;
+        margin-bottom: 0.4rem;
+        color: var(--navy);
+    }
 
-.hero-bg {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 55%),
-        radial-gradient(circle at bottom, rgba(30,144,255,0.35), transparent 60%),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px);
-    opacity: 0.9;
-    z-index: -1;
-}
+    .how-pill {
+        margin-bottom: 1.4rem;
+    }
 
-.hero-cta {
-    margin-top: 1.5rem;
-    padding: 0.9rem 2rem;
-    background: #ff4f4f;
-    color: #fff;
-    border-radius: 4px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-}
+    .how-pill h3 {
+        margin: 0 0 0.3rem;
+        font-size: 1rem;
+        color: #111827;
+    }
 
-/* SECTION WRAPPER */
-.section {
-    max-width: 1100px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
+    .how-pill p {
+        margin: 0;
+        font-size: 0.95rem;
+    }
 
-.section p {
-    margin-bottom: 1.2rem;
-}
-
-/* TWO COLUMN */
-.two-column {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
-}
-
-/* STORY BLOCK */
-.story-block {
-    background: #fff;
-    padding: 1.5rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-}
-
-.story-label {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: var(--navy);
-}
-
-/* BADGES */
-.badge-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.badge {
-    background: var(--accent-soft);
-    padding: 0.4rem 0.8rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    color: #333;
-}
-
-/* ROADMAP */
-.roadmap-strip {
-    background: var(--roadmap-bg);
-    color: white;
-    padding: 4rem 2rem;
-    margin-top: 4rem;
-}
-
-.roadmap-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.roadmap-title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.roadmap-sub {
-    opacity: 0.8;
-    margin-bottom: 2rem;
-}
-
-.roadmap-steps {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.roadmap-step {
-    padding: 0.8rem 1.2rem;
-    background: rgba(255,255,255,0.1);
-    border-radius: 4px;
-}
-
-.roadmap-step.current {
-    background: var(--accent);
-    color: #000;
-}
-
-/* FOLLOW GRID */
-.follow-wrapper {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.follow-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-}
-
-.follow-note {
-    font-size: 1rem;
-    line-height: 1.5rem;
-}
-
-.follow-form input,
-.follow-form textarea {
-    width: 100%;
-    padding: 0.7rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.follow-submit {
-    margin-top: 1rem;
-}
-
-/* RESPONSIVE */
-@media (max-width: 720px) {
+    /* WHO I AM */
     .two-column {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr;
+        gap: 2.5rem;
+        align-items: flex-start;
     }
 
+    .story-block {
+        background: #FFFFFF;
+        padding: 1.5rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .story-label {
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+        color: var(--navy);
+    }
+
+    .badge-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+
+    .badge {
+        background: var(--accent-soft);
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        color: #333;
+    }
+
+    /* ROADMAP */
+    .roadmap-strip {
+        background: var(--roadmap-bg);
+        color: #FFFFFF;
+        padding: 3.5rem 2rem;
+        margin-top: 3.5rem;
+    }
+
+    .roadmap-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .roadmap-title {
+        font-size: 1.7rem;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+    }
+
+    .roadmap-sub {
+        opacity: 0.85;
+        margin-bottom: 1.8rem;
+    }
+
+    .roadmap-steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .roadmap-step {
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.12);
+        font-size: 0.9rem;
+    }
+
+    .roadmap-step.current {
+        background: var(--accent);
+        color: #000;
+    }
+
+    /* FOLLOW */
     .follow-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 2.5rem;
+        align-items: flex-start;
     }
-}
 
-</style>
+    .follow-note {
+        font-size: 0.98rem;
+        line-height: 1.6;
+    }
+
+    .follow-form label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .follow-form input,
+    .follow-form textarea {
+        width: 100%;
+        padding: 0.7rem;
+        margin-bottom: 1rem;
+        border-radius: 4px;
+        border: 1px solid #D1D5DB;
+        font-family: inherit;
+        font-size: 0.95rem;
+    }
+
+    .follow-form textarea {
+        min-height: 110px;
+        resize: vertical;
+    }
+
+    .follow-small {
+        font-size: 0.8rem;
+        color: #6B7280;
+        margin-bottom: 0.75rem;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 0.8rem 1.6rem;
+        border-radius: 999px;
+        border: none;
+        background: var(--accent);
+        color: #000;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        filter: brightness(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+        margin-top: 3rem;
+        padding: 2rem 1rem 3rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #555;
+        background: #F9FAFB;
+    }
+
+    .footer-accent {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--blue));
+        margin-bottom: 1rem;
+    }
+
+    footer a {
+        color: #555;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+        .two-column,
+        .how-grid,
+        .follow-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .hero {
+            padding: 4rem 1.5rem 3rem;
+        }
+        .section {
+            padding: 0 1.5rem;
+        }
+    }
+    </style>
 </head>
-
 <body>
 
     <!-- NAVBAR -->
     <header class="nav">
         <div class="nav-inner">
-            <div class="nav-logo">Momma's Pop Shop</div>
-          <nav class="nav-links">
-    <a href="#product">Product</a>
-    <a href="#how">How We Build</a>
-    <a href="#who">Who I Am</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#follow">Follow</a>
-    <a href="contact.html">Contact</a>
-    <a href="#shop" class="nav-cta">eBay Store</a>
-</nav>
+            <div class="nav-logo">MOMMA'S POP SHOP</div>
+            <nav class="nav-links">
+                <a href="#product">Product</a>
+                <a href="#how">How We Build</a>
+                <a href="#who">Who I Am</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="#follow">Follow</a>
+                <a href="https://www.ebay.com/str/mommaspopshopllc" class="nav-cta">eBay Store</a>
+            </nav>
         </div>
     </header>
 
-<!-- HERO -->
-<div id="hero" class="section hero">
-    <div class="hero-bg"></div>
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-inner">
+            <div class="hero-kicker">MOMMA'S POP SHOP LLC</div>
+            <h1 class="hero-title">Modular Botanical Workstations, Engineered With Intention.</h1>
+            <div class="hero-body">
+                <p>
+                    If your current setup is a folding table covered in random trays, tools, and a prayer that nothing spills,
+                    you’re exactly who we’re building for.
+                </p>
+                <p>
+                    We’re building the <strong>POP Benchline System</strong> — a modular platform for clean, repeatable,
+                    small‑scale botanical work.
+                </p>
+                <p>
+                    Our first layout on that platform is the <strong>POP Top Layout</strong>, part of the
+                    <strong>Tabletop Soda Pop Series</strong> — a nod to old‑school soda pop and the “Pop” who engineered the system.
+                </p>
+            </div>
+            <a href="https://www.ebay.com/str/mommaspopshopllc" class="hero-cta">Visit Our eBay Store</a>
+        </div>
+    </section>
 
-    <h1>POP Benchline System</h1>
+    <!-- PRODUCT LINE -->
+    <section id="product" class="section">
+        <div class="section-subtitle">Product Line</div>
+        <h2>POP Benchline System – Tabletop Soda Pop Series</h2>
 
-    <p>
-        Built for people who actually do the work. Clean, repeatable, small‑scale botanical setups without the clutter or the gimmicks.
-    </p>
+        <div class="highlight-strip">
+            <p>
+                The <strong>POP Benchline System</strong> is our modular platform.
+                The <strong>Tabletop Soda Pop Series</strong> is the first collection built on it,
+                starting with the <strong>POP Top Layout</strong>.
+            </p>
+        </div>
 
-   <p class="hero-sub">
-    First up: the <strong>POP Top Layout</strong> — simple, solid, and built for people who actually use their bench.
-</p>
+        <p>
+            The POP Top Layout is designed for people who want a clean, repeatable setup with a place for every tool and container.
+            Less clutter, less chaos, less wasted motion — more time actually doing the work.
+        </p>
+        <p>
+            No gimmicks. No over‑designed nonsense. Just a system that finally gives everything a place and grows with your workflow.
+        </p>
+    </section>
 
-   <a href="https://www.ebay.com/str/mommaspopshopllc" class="button hero-cta">Visit the Store</a>
+    <!-- COMING SOON -->
+    <section id="coming" class="section">
+        <div class="section-subtitle">Coming Soon</div>
+        <h2>The POP Top Layout – Tabletop Soda Pop Series</h2>
 
-<!-- PRODUCT LINE -->
-<div id="product" class="section">
-    <div class="section-subtitle">Product Line</div>
-    <h2>The System</h2>
+        <p>
+            Our first layout is a compact tabletop system built around smart storage, clean surfaces, and modular parts that lock
+            into place where you actually use them.
+        </p>
+        <p>
+            We’re testing tray shapes, organizer modules, and mounting options to find the setup that feels natural in real life —
+            not just in CAD. This is the first flavor in the Tabletop Soda Pop Series. More layouts will follow as we refine the platform.
+        </p>
+    </section>
 
-    <div class="highlight-strip">
-        <p><strong>POP Benchline System</strong>: a modular platform built to keep your workflow clean and consistent.</p>
-        <p>The first collection is the <strong>Tabletop Soda Pop Series</strong>.</p>
-        <p>Its first release is the <strong>POP Top Layout</strong>.</p>
-    </div>
+    <!-- HOW WE BUILD -->
+    <section id="how" class="section">
+        <div class="section-subtitle">How We Build</div>
+        <h2>Engineering‑Driven. Lean‑Minded. Built for Real Work.</h2>
 
-    <p>
-        The layout gives every tool and container a defined place. No wasted motion, no guessing, no “where the hell does this go.” Just a bench that works with you instead of against you.
-    </p>
+        <div class="how-grid">
+            <div>
+                <p>
+                    Our product development is backed by more than a decade of real engineering and manufacturing experience:
+                    process engineering in electronics manufacturing, lean principles, fixture design, flow optimization,
+                    root cause analysis, sheet metal fabrication, CAD modeling, and rapid prototyping.
+                </p>
+                <p>
+                    We think like engineers because we are engineers. If a part doesn’t reduce clutter, improve flow,
+                    or make the work easier, it doesn’t ship. We use proven CAD tools and in‑house 3D printing to move fast:
+                    build, test, break, refine, repeat. Every module in the Tabletop Soda Pop Series is shaped by this mindset.
+                </p>
+            </div>
 
-    <p>
-        We don’t add parts to look clever. If it doesn’t improve the workflow, it doesn’t make the cut. That’s the whole philosophy.
-    </p>
-</div>
+            <div>
+                <div class="how-pill">
+                    <div class="how-pill-title">Design</div>
+                    <h3>Built Around Real Work</h3>
+                    <p>
+                        Layouts are modeled around reach, flow, and task order so tools, trays, and surfaces support the way work
+                        actually happens on the bench.
+                    </p>
+                </div>
 
-<!-- COMING SOON -->
-<div id="coming" class="section">
-    <div class="section-subtitle">Coming Soon</div>
-    <h2>What’s Next</h2>
+                <div class="how-pill">
+                    <div class="how-pill-title">Process</div>
+                    <h3>Lean Mindset</h3>
+                    <p>
+                        Years of process engineering experience mean we focus on reducing wasted motion, cutting clutter,
+                        and making it easier to do the same task cleanly, over and over.
+                    </p>
+                </div>
 
-    <p>
-        More modules are in the pipeline — built with the same rules: clean workflow, solid materials, and parts that earn their place.
-    </p>
+                <div class="how-pill">
+                    <div class="how-pill-title">Prototyping</div>
+                    <h3>Fast Iteration</h3>
+                    <p>
+                        A Bambu Lab P1S and a background in fabrication let us move quickly from idea to physical parts,
+                        then refine them based on how they actually perform.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <p>
-        No trend-chasing. No “new version every six months.” When a component is ready, it’s because it’s actually better, not because we needed something to post on social media.
-    </p>
-
-    <p>
-        Updates drop as prototypes move into production. No hype, just progress.
-    </p>
-</div>
-
-<!-- HOW WE BUILD -->
-<div id="how" class="section">
-    <div class="section-subtitle">How We Build</div>
-    <h2>Built the Right Way</h2>
-
-   <p>
-    We build hardware to work. No fluff, no gimmicks — just tools that make your workflow cleaner and your day easier.
-</p>
-
-    <p>
-        Every component earns its place. If it doesn’t improve the workflow, it doesn’t make the cut.
-    </p>
-
-    <p>
-        No trends. No gimmicks. Just reliable engineering that holds up over time.
-    </p>
-</div>
-        <!-- WHO I AM -->
-    <div id="who" class="section">
+    <!-- WHO I AM -->
+    <section id="who" class="section">
         <div class="section-subtitle">Who I Am</div>
         <h2>The Person Behind Momma’s Pop Shop</h2>
 
         <div class="two-column">
             <div>
                 <p>
-                    I worked my way through school doing custom framing — learning how to measure twice, cut once, and care about the details people actually see every day.
+                    I worked my way through school doing custom framing — learning how to measure twice, cut once,
+                    and care about the details people actually see every day.
                 </p>
                 <p>
-                    From there, I spent years working in a not‑for‑profit insurance program that helps people who struggle to get coverage in the standard market. We do the work of a full insurance company with a lean team, which means staying organized, focused, and efficient every single day.
+                    From there, I spent years working in a not‑for‑profit insurance program that helps people who struggle
+                    to get coverage in the standard market. We do the work of a full insurance company with a lean team,
+                    which means staying organized, focused, and efficient every single day.
                 </p>
                 <p>
-                    Along the way, I earned a CPCU (Chartered Property Casualty Underwriter) and later moved into accounting work. That mix of craftsmanship, financial discipline, and serving people who don’t always get the easy version of life is what I bring into this business. I care about details, I care about numbers, and I care about building products that make people’s day‑to‑day lives easier.
+                    Along the way, I earned a CPCU (Chartered Property Casualty Underwriter) and later moved into accounting work.
+                    That mix of craftsmanship, financial discipline, and serving people who don’t always get the easy version of life
+                    is what I bring into this business. I care about details, I care about numbers, and I care about building products
+                    that make people’s day‑to‑day lives easier.
                 </p>
             </div>
 
@@ -381,18 +551,18 @@ a {
                 <div class="story-block">
                     <div class="story-label">How That Shapes This Business</div>
                     <p>
-                        The business side is grounded in long‑term, not‑for‑profit work and formal training in risk and accounting. 
-                        The product side is driven by more than ten years of engineering and manufacturing experience in electronics assembly, 
-                        process improvement, and fabrication.
+                        The business side is grounded in long‑term, not‑for‑profit work and formal training in risk and accounting.
+                        The product side is driven by more than ten years of engineering and manufacturing experience in electronics
+                        assembly, process improvement, and fabrication.
                     </p>
                     <p>
-                        Together, that combination means we think about both sides of every decision: does it work for the person using it, 
-                        and does it make sense for the business that has to build it? The result is a small company that treats quality, 
+                        Together, that combination means we think about both sides of every decision: does it work for the person using it,
+                        and does it make sense for the business that has to build it? The result is a small company that treats quality,
                         process, and practicality like they actually matter.
                     </p>
                     <div class="badge-row">
                         <div class="badge">Craftsmanship</div>
-                        <div class="badge">Finance & Accounting</div>
+                        <div class="badge">Finance &amp; Accounting</div>
                         <div class="badge">CPCU</div>
                         <div class="badge">Process Engineering</div>
                         <div class="badge">Lean Mindset</div>
@@ -401,10 +571,10 @@ a {
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- ROADMAP -->
-    <div id="roadmap" class="roadmap-strip">
+    <section id="roadmap" class="roadmap-strip">
         <div class="roadmap-inner">
             <div class="roadmap-title">Roadmap</div>
             <div class="roadmap-sub">Where we are and where we’re headed</div>
@@ -417,60 +587,48 @@ a {
                 <div class="roadmap-step">Full Release</div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- FOLLOW SECTION -->
-    <div id="follow" class="section">
+    <!-- FOLLOW -->
+    <section id="follow" class="section">
         <div class="section-subtitle">Stay Connected</div>
         <h2>Join the Early Crew</h2>
 
-        <div class="follow-wrapper">
-            <div class="follow-grid">
+        <div class="follow-grid">
+            <div class="follow-note">
+                Want updates as we build the POP Top Layout and the rest of the Tabletop Soda Pop Series?
+                Drop your info below and you’ll be the first to know when we have real progress, prototypes,
+                or early units ready.
+                <br><br>
+                <strong>We respect your inbox.</strong><br>
+                We don’t sell your data.<br>
+                We don’t share your info.<br>
+                We only reach out when we have something real to say.<br>
+                Honesty in, honesty out.
+            </div>
 
-                <div class="follow-note">
-                    Want updates as we build the POP Top Layout and the rest of the Tabletop Soda Pop Series?  
-                    Drop your info below and you’ll be the first to know when we have real progress, prototypes, or early units ready.
+            <form class="follow-form" method="post" action="https://formsubmit.co/updates@mommaspopshopllc.com">
+                <input type="hidden" name="_next" value="http://mommaspopshopllc.com/thank-you.html">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
 
-                    <br><br>
-                    <strong>We respect your inbox.</strong><br>
-                    We don’t sell your data.  
-                    We don’t share your info.  
-                    We only reach out when we have something real to say.  
-                    Honesty in, honesty out.
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="What should we call you?">
+
+                <label for="email">Email <span style="color:#D9534F;">*</span></label>
+                <input id="email" name="email" type="email" required placeholder="you@example.com">
+
+                <label for="use">What are you working on?</label>
+                <textarea id="use" name="use" placeholder="Tell us a bit about your setup or what you’d use a workstation like this for."></textarea>
+
+                <div class="follow-small">
+                    Your info is sent securely through FormSubmit.
                 </div>
 
-                <form class="follow-form" method="post" action="https://formsubmit.co/updates@mommaspopshopllc.com">
-
-                    <!-- Redirect to thank-you page -->
-                    <input type="hidden" name="_next" value="http://mommaspopshopllc.com/thank-you.html">
-
-                    <!-- Disable CAPTCHA -->
-                    <input type="hidden" name="_captcha" value="false">
-
-                    <!-- Honeypot anti-spam -->
-                    <input type="text" name="_honey" style="display:none">
-
-                    <label for="name">Name</label>
-                    <input id="name" name="name" type="text" placeholder="What should we call you?">
-
-                    <label for="email">Email <span style="color:#D9534F;">*</span></label>
-                    <input id="email" name="email" type="email" required placeholder="you@example.com">
-
-                    <label for="use">What are you working on?</label>
-                    <textarea id="use" name="use" placeholder="Tell us a bit about your setup or what you’d use a workstation like this for."></textarea>
-
-                    <div class="follow-small">
-                        Your info is sent securely through FormSubmit.
-                    </div>
-
-                    <div class="follow-submit">
-                        <button type="submit" class="button">Join The Early Crew</button>
-                    </div>
-                </form>
-
-            </div>
+                <button type="submit" class="button">Join The Early Crew</button>
+            </form>
         </div>
-    </div>
+    </section>
 
     <!-- FOOTER -->
     <footer>
@@ -487,3 +645,4 @@ a {
 
 </body>
 </html>
+
