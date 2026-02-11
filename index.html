@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momma's Pop Shop</title>
+    <title>Momma's Pop Shop — POP Benchline System</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
     <meta name="description" content="Momma’s Pop Shop builds practical, high-quality hardware with real engineering, craftsmanship, and intention. No gimmicks. No shortcuts. Just solid tools made to be used, not displayed.">
@@ -219,7 +219,7 @@
             position: relative;
             z-index: 1;
             display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
             gap: 40px;
             align-items: center;
         }
@@ -293,6 +293,7 @@
             margin-bottom: 16px;
         }
 
+        /* HERO PRODUCT SCHEMATIC */
         .hero-visual {
             position: relative;
             height: 280px;
@@ -325,38 +326,6 @@
             box-shadow: 0 0 22px rgba(30,144,255,0.7);
         }
 
-        .hero-arc {
-            position: absolute;
-            width: 190px;
-            height: 190px;
-            border-radius: 50%;
-            border: 2px solid rgba(255,255,255,0.35);
-            border-color: rgba(255,255,255,0.35) transparent transparent transparent;
-            top: 8%;
-            right: -12%;
-            transform: rotate(18deg);
-        }
-
-        .hero-node {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            top: 26%;
-            right: 18%;
-            box-shadow: 0 0 14px rgba(255,179,71,0.9);
-        }
-
-        .hero-baseline {
-            position: absolute;
-            left: 10%;
-            bottom: 18%;
-            width: 64%;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.7), rgba(255,255,255,0.0));
-        }
-
         .hero-stamp {
             position: absolute;
             left: 10%;
@@ -370,6 +339,86 @@
             color: rgba(255,255,255,0.85);
             background: rgba(5,11,20,0.7);
         }
+
+        .hero-bench {
+            position: absolute;
+            inset: 26% 14% 18%;
+            border-radius: 12px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255,255,255,0.12), transparent 55%),
+                #0B1728;
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.8),
+                inset 0 0 0 1px rgba(255,255,255,0.08);
+            display: grid;
+            grid-template-rows: 0.9fr 1.1fr 0.7fr;
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .hero-row {
+            display: grid;
+            gap: 6px;
+        }
+
+        .hero-row.back {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .hero-row.mid {
+            grid-template-columns: 1.1fr repeat(3, 1fr);
+        }
+
+        .hero-row.front {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-well,
+        .hero-cell,
+        .hero-bin {
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.55);
+            background: rgba(5,11,20,0.9);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6);
+        }
+
+        .hero-well {
+            border-radius: 999px;
+            box-shadow:
+                inset 0 0 0 1px rgba(0,0,0,0.8),
+                0 0 12px rgba(30,144,255,0.6);
+        }
+
+        .hero-bin {
+            border-radius: 8px;
+        }
+
+        .hero-label {
+            position: absolute;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: rgba(255,255,255,0.9);
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(5,11,20,0.9);
+            white-space: nowrap;
+        }
+
+        .hero-label.l1 { top: 20%; left: 12%; }
+        .hero-label.l2 { top: 46%; right: 12%; }
+        .hero-label.l3 { bottom: 20%; left: 18%; }
+
+        .hero-tick {
+            position: absolute;
+            height: 1px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .hero-tick.t1 { top: 24%; left: 26%; width: 40px; }
+        .hero-tick.t2 { top: 50%; right: 26%; width: 46px; }
+        .hero-tick.t3 { bottom: 24%; left: 30%; width: 34px; }
 
         .button {
             background-color: var(--accent);
@@ -507,7 +556,7 @@
             }
         }
 
-        /* PRODUCT VISUAL: POP TOP SCHEMATIC */
+        /* PRODUCT VISUAL: POP TOP SCHEMATIC (section) */
         .product-visual {
             background: #050B14;
             position: relative;
@@ -685,136 +734,109 @@
                 0 26px 60px rgba(0,0,0,0.9);
         }
 
-        .product-visual::after {
+        /* EXPLODED LAYOUT VISUAL */
+        .exploded-visual {
+            height: 280px;
+            border-radius: 14px;
+            position: relative;
+            overflow: visible;
+            background: #050B14;
+            box-shadow:
+                inset 0 0 0 1px rgba(255,255,255,0.08),
+                0 22px 50px rgba(0,0,0,0.8);
+        }
+
+        .exploded-visual::before {
             content: "";
             position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg,
-                rgba(255,255,255,0.08),
-                transparent 40%,
-                rgba(255,255,255,0.04));
-            mix-blend-mode: screen;
-            opacity: 0.35;
+            inset: 10% 8%;
+            border-radius: 12px;
+            border: 1px dashed rgba(255,255,255,0.25);
             pointer-events: none;
         }
 
-        /* COMING VISUAL */
-        .coming-visual::before {
-            content: "";
+        .exploded-layer {
             position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 2px solid rgba(30,144,255,0.7);
-            top: 12%;
-            left: 10%;
-        }
-
-        .coming-visual::after {
-            content: "";
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            border: 1px dashed rgba(255,255,255,0.5);
-            top: 24%;
-            left: 22%;
-        }
-
-        .coming-visual .node {
-            position: absolute;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 14px rgba(255,179,71,0.9);
-        }
-
-        .coming-visual .node.n1 { top: 18%; left: 40%; }
-        .coming-visual .node.n2 { top: 52%; left: 18%; }
-        .coming-visual .node.n3 { top: 64%; left: 46%; }
-
-        /* HOW VISUAL */
-        .how-visual::before {
-            content: "";
-            position: absolute;
-            inset: 12% 10%;
-            background:
-                linear-gradient(135deg, rgba(255,255,255,0.18) 1px, transparent 1px),
-                linear-gradient(135deg, transparent 9px, rgba(255,255,255,0.12) 9px, transparent 10px);
-            background-size: 18px 18px;
-            opacity: 0.6;
-        }
-
-        .how-visual::after {
-            content: "";
-            position: absolute;
-            inset: 26% 22%;
-            border-radius: 12px;
-            border: 2px solid rgba(255,255,255,0.35);
-            transform: skewX(-10deg);
-        }
-
-        /* WHO VISUAL */
-        .who-visual::before {
-            content: "";
-            position: absolute;
-            inset: 16% 14%;
-            border-radius: 12px;
-            border: 2px solid rgba(30,144,255,0.7);
-        }
-
-        .who-visual::after {
-            content: "";
-            position: absolute;
-            inset: 26% 22%;
-            border-radius: 12px;
-            border: 1px dashed rgba(255,255,255,0.5);
-        }
-
-        .who-visual .corner {
-            position: absolute;
-            width: 26px;
-            height: 26px;
-            border: 2px solid rgba(255,255,255,0.7);
-        }
-
-        .who-visual .corner.c1 { top: 16%; left: 14%; border-right: none; border-bottom: none; }
-        .who-visual .corner.c2 { top: 16%; right: 14%; border-left: none; border-bottom: none; }
-        .who-visual .corner.c3 { bottom: 16%; left: 14%; border-right: none; border-top: none; }
-        .who-visual .corner.c4 { bottom: 16%; right: 14%; border-left: none; border-top: none; }
-
-        /* FOLLOW VISUAL */
-        .follow-visual::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 18px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 18px);
-            opacity: 0.5;
-        }
-
-        .follow-visual::after {
-            content: "";
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 2px solid rgba(30,144,255,0.7);
-            top: 20%;
+            left: 14%;
             right: 14%;
+            height: 46px;
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255,255,255,0.12), transparent 55%),
+                #0B1728;
+            box-shadow:
+                0 0 14px rgba(0,0,0,0.9),
+                inset 0 0 0 1px rgba(255,255,255,0.08);
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 4px;
+            padding: 6px;
+            transform-origin: center;
         }
 
-        .follow-visual .node {
+        .exploded-layer.base {
+            bottom: 18%;
+            transform: translateY(0);
+        }
+
+        .exploded-layer.mid {
+            bottom: 36%;
+            transform: translateY(-6px);
+        }
+
+        .exploded-layer.top {
+            bottom: 54%;
+            transform: translateY(-12px);
+        }
+
+        .exploded-cell {
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.55);
+            background: rgba(5,11,20,0.9);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6);
+        }
+
+        .exploded-cell.round {
+            border-radius: 999px;
+        }
+
+        .exploded-label {
             position: absolute;
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: var(--accent);
-            bottom: 22%;
-            right: 26%;
-            box-shadow: 0 0 14px rgba(255,179,71,0.9);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.9);
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(5,11,20,0.9);
+            white-space: nowrap;
+        }
+
+        .exploded-label.l1 { top: 18%; left: 10%; }
+        .exploded-label.l2 { top: 40%; right: 10%; }
+        .exploded-label.l3 { bottom: 18%; left: 16%; }
+
+        .exploded-tick {
+            position: absolute;
+            height: 1px;
+            background: rgba(255,255,255,0.6);
+        }
+
+        .exploded-tick.t1 { top: 22%; left: 26%; width: 40px; }
+        .exploded-tick.t2 { top: 44%; right: 26%; width: 46px; }
+        .exploded-tick.t3 { bottom: 22%; left: 30%; width: 34px; }
+
+        .exploded-visual:hover .exploded-layer.top {
+            transform: translateY(-18px);
+        }
+
+        .exploded-visual:hover .exploded-layer.mid {
+            transform: translateY(-10px);
+        }
+
+        .exploded-visual:hover .exploded-layer.base {
+            transform: translateY(-2px);
         }
 
         .highlight-strip {
@@ -873,35 +895,29 @@
             margin-bottom: 6px;
         }
 
-        .story-block {
-            background-color: #FFFFFF;
-            border-radius: 12px;
-            padding: 16px 18px;
-            border-left: 4px solid var(--accent);
-            font-size: 14px;
+        /* USE STRIP */
+        .use-strip {
+            max-width: 1000px;
+            margin: 40px auto 0;
+            padding: 22px 24px 20px;
+            border-radius: 16px;
+            background: #F5F7FB;
+            box-shadow: 0 14px 32px rgba(5,20,40,0.14);
         }
 
-        .story-label {
-            font-size: 11px;
+        .use-strip-title {
+            font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 0.14em;
-            color: #777;
-            margin-bottom: 4px;
+            color: #666;
+            margin-bottom: 6px;
         }
 
-        .badge-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 10px;
-        }
-
-        .badge {
-            font-size: 11px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background-color: #E9EDF5;
-            color: #333;
+        .use-strip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            font-size: 13px;
         }
 
         /* ROADMAP */
@@ -1414,6 +1430,7 @@
             <div class="nav-logo">Momma's Pop Shop</div>
             <nav class="nav-links">
                 <a href="#product">Product</a>
+                <a href="#layout">Layout</a>
                 <a href="#how">How We Build</a>
                 <a href="#who">Who I Am</a>
                 <a href="#roadmap">Roadmap</a>
@@ -1433,6 +1450,7 @@
         <button class="drawer-close" id="drawer-close" aria-label="Close menu">✕</button>
         <nav class="mobile-links">
             <a href="#product">Product</a>
+            <a href="#layout">Layout</a>
             <a href="#how">How We Build</a>
             <a href="#who">Who I Am</a>
             <a href="#roadmap">Roadmap</a>
@@ -1466,9 +1484,31 @@
 
             <div class="hero-visual">
                 <div class="hero-stamp">ENGINEERED • BENCHLINE SERIES • POP TOP</div>
-                <div class="hero-arc"></div>
-                <div class="hero-node"></div>
-                <div class="hero-baseline"></div>
+                <div class="hero-bench">
+                    <div class="hero-row back">
+                        <div class="hero-well"></div>
+                        <div class="hero-well"></div>
+                        <div class="hero-well"></div>
+                        <div class="hero-well"></div>
+                    </div>
+                    <div class="hero-row mid">
+                        <div class="hero-cell"></div>
+                        <div class="hero-cell"></div>
+                        <div class="hero-cell"></div>
+                        <div class="hero-cell"></div>
+                    </div>
+                    <div class="hero-row front">
+                        <div class="hero-bin"></div>
+                    </div>
+                </div>
+
+                <div class="hero-label l1">Bottle / Jar Wells</div>
+                <div class="hero-label l2">Container Grid</div>
+                <div class="hero-label l3">Catch / Scrap Zone</div>
+
+                <div class="hero-tick t1"></div>
+                <div class="hero-tick t2"></div>
+                <div class="hero-tick t3"></div>
             </div>
         </div>
     </div>
@@ -1538,34 +1578,96 @@
         </div>
     </div>
 
-    <!-- COMING SOON -->
-    <div id="coming" class="section slide-left">
+    <!-- LAYOUT BREAKDOWN -->
+    <div id="layout" class="section slide-right">
         <div class="section-header">
-            <div class="section-module">02 — Coming Next</div>
+            <div class="section-module">01A — Layout Breakdown</div>
             <div class="section-line"></div>
         </div>
-        <div class="section-subtitle">Future Modules</div>
-        <h2>What’s Next For The Benchline</h2>
+        <div class="section-subtitle">POP Top Concept Only</div>
+        <h2>How The Bench Comes Together</h2>
 
         <div class="two-column">
-            <div class="visual-col coming-visual">
-                <div class="node n1"></div>
-                <div class="node n2"></div>
-                <div class="node n3"></div>
-            </div>
-
             <div class="text-col">
                 <p>
-                    We’re expanding the system with additional modules built on the same principles: clean workflow, solid materials, and parts that earn their place.
+                    This isn’t a glamour render — it’s a schematic of how the POP Top is meant to behave on your bench.
+                    Three functional layers: the base plate, the container grid, and the working surface.
                 </p>
-
                 <p>
-                    Every new component will integrate directly into the Benchline System without forcing you to relearn your setup or buy into a new platform.
+                    The idea is simple: bottles and jars stay locked in, containers live where they belong, and the front edge
+                    stays clear for the work that actually matters. No mystery, no magic — just a layout that respects your hands.
                 </p>
+                <div class="grid">
+                    <div class="card">
+                        <div class="pill">Base Layer</div>
+                        <h3>Bench Interface</h3>
+                        <p>Flat, stable, and sized for real tables — not imaginary studio desks.</p>
+                    </div>
+                    <div class="card">
+                        <div class="pill">Middle Layer</div>
+                        <h3>Container Logic</h3>
+                        <p>Defined pockets for jars, trays, and small hardware so nothing wanders off mid‑workflow.</p>
+                    </div>
+                    <div class="card">
+                        <div class="pill">Top Layer</div>
+                        <h3>Working Edge</h3>
+                        <p>Front zone kept clean for cutting, sorting, and the actual task you’re there to do.</p>
+                    </div>
+                </div>
+            </div>
 
-                <p>
-                    More details will roll out as components move from prototype to production.
-                </p>
+            <div class="visual-col exploded-visual">
+                <div class="exploded-layer top">
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                </div>
+                <div class="exploded-layer mid">
+                    <div class="exploded-cell round"></div>
+                    <div class="exploded-cell round"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell round"></div>
+                    <div class="exploded-cell round"></div>
+                </div>
+                <div class="exploded-layer base">
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                    <div class="exploded-cell"></div>
+                </div>
+
+                <div class="exploded-label l1">Top Working Plane</div>
+                <div class="exploded-label l2">Container Logic Layer</div>
+                <div class="exploded-label l3">Bench Interface Plate</div>
+
+                <div class="exploded-tick t1"></div>
+                <div class="exploded-tick t2"></div>
+                <div class="exploded-tick t3"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- USE STRIP -->
+    <div class="use-strip slide-up">
+        <div class="use-strip-title">Real Benches We’re Designing For</div>
+        <div class="use-strip-grid">
+            <div>
+                <strong>Small‑scale botanical work</strong><br>
+                Folding tables, spare rooms, and borrowed corners that still deserve a clean, repeatable workflow.
+            </div>
+            <div>
+                <strong>Electronics & repair benches</strong><br>
+                Jars of screws, trays of boards, and tools that need a defined home instead of a random pile.
+            </div>
+            <div>
+                <strong>Mixed‑use work surfaces</strong><br>
+                Spaces that flip between “project mode” and “normal life” without leaving a mess behind.
             </div>
         </div>
     </div>
@@ -1796,6 +1898,7 @@
                 <div class="footer-links">
                     <div>
                         <a href="#product">Product</a>
+                        <a href="#layout">Layout</a>
                         <a href="#how">How We Build</a>
                         <a href="#who">Who I Am</a>
                         <a href="#roadmap">Roadmap</a>
@@ -1816,6 +1919,7 @@
     <!-- STICKY SECTION INDEX -->
     <nav class="section-index" aria-hidden="true">
         <a href="#product" data-target="product"></a>
+        <a href="#layout" data-target="layout"></a>
         <a href="#how" data-target="how"></a>
         <a href="#who" data-target="who"></a>
         <a href="#roadmap" data-target="roadmap"></a>
@@ -1914,4 +2018,3 @@
 
 </body>
 </html>
-
