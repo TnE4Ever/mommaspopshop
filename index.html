@@ -102,14 +102,27 @@
                 gap: 8px;
             }
         }
+  
+        /* HERO WITH GRADIENT + BLUEPRINT HASHING */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    padding: 80px 20px 70px;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-            padding: 80px 20px 70px;
-            text-align: center;
-            color: white;
-        }
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 22px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0px, rgba(255,255,255,0.06) 1px, transparent 1px, transparent 22px);
+    opacity: 0.35;
+    pointer-events: none;
+}
 
         .hero h1 {
             font-size: 40px;
