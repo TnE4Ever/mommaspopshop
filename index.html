@@ -178,6 +178,9 @@
             margin-bottom: 10px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .hero-tagline-bar {
@@ -185,28 +188,38 @@
             width: 46px;
             height: 2px;
             background: linear-gradient(90deg, var(--accent), var(--blue));
-            margin-right: 8px;
-            vertical-align: middle;
+        }
+
+        .hero-module {
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .hero h1 {
             font-size: 42px;
             margin-bottom: 14px;
             letter-spacing: 0.04em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::before {
+            content: "";
+            position: absolute;
+            left: -18px;
+            right: -40px;
+            bottom: -10px;
+            height: 4px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.9), rgba(255,255,255,0.0));
+            transform: skewX(-16deg);
+            opacity: 0.9;
         }
 
         .hero p {
             font-size: 17px;
             margin-bottom: 16px;
-        }
-
-        .hero-note {
-            font-size: 14px;
-            opacity: 0.95;
-            margin-bottom: 22px;
-            max-width: 640px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .hero-visual {
@@ -315,15 +328,22 @@
             transform-origin: left center;
         }
 
-        /* SECTIONS */
+        /* SECTION WRAPPER */
         .section {
             position: relative;
             max-width: 1000px;
-            margin: 60px auto;
-            padding: 40px 24px;
+            margin: 70px auto;
+            padding: 40px 24px 36px;
             background-color: #FFFFFF;
             border-radius: 18px;
             box-shadow: 0 18px 40px rgba(5, 20, 40, 0.12);
+        }
+
+        #hero.section {
+            max-width: 100%;
+            margin: 0 0 70px 0;
+            border-radius: 0 0 26px 26px;
+            box-shadow: 0 26px 60px rgba(0,0,0,0.7);
         }
 
         .section::after {
@@ -340,30 +360,25 @@
             border-radius: inherit;
         }
 
-        #hero.section {
-            max-width: 100%;
-            margin: 0 0 70px 0;
-            border-radius: 0 0 26px 26px;
-            box-shadow: 0 26px 60px rgba(0,0,0,0.7);
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
         }
 
-        .section:not(.hero)::before {
-            content: "";
-            position: absolute;
-            top: -26px;
-            left: 0;
-            width: 140px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--blue));
-            transform: skewX(-18deg);
-            opacity: 0.9;
+        .section-module {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: #777;
+            white-space: nowrap;
         }
 
-        .section h2 {
-            text-align: left;
-            margin-bottom: 10px;
-            color: var(--navy);
-            font-size: 26px;
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.0), rgba(0,0,0,0.25));
         }
 
         .section-subtitle {
@@ -371,7 +386,14 @@
             text-transform: uppercase;
             letter-spacing: 0.12em;
             color: #6A6A6A;
-            margin-bottom: 16px;
+            margin-bottom: 4px;
+        }
+
+        .section h2 {
+            text-align: left;
+            margin-bottom: 10px;
+            color: var(--navy);
+            font-size: 26px;
         }
 
         /* TWO-COLUMN LAYOUT */
@@ -407,132 +429,155 @@
             }
         }
 
-        /* UNIQUE GEOMETRY PER SECTION */
+        /* PRODUCT VISUAL: POP TOP SCHEMATIC */
+        .product-visual {
+            background: #050B14;
+            position: relative;
+            overflow: visible;
+        }
 
-     /* PRODUCT VISUAL: POP TOP SCHEMATIC */
-.product-visual {
-    background: #050B14;
-    position: relative;
-    overflow: visible;
-}
+        .product-visual::before {
+            content: "";
+            position: absolute;
+            inset: 10% 8%;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.18);
+            pointer-events: none;
+        }
 
-.product-visual::before {
-    content: "";
-    position: absolute;
-    inset: 10% 8%;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.18);
-    pointer-events: none;
-}
+        .product-visual::after {
+            content: "";
+            position: absolute;
+            inset: 6% 4%;
+            background:
+                repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 16px),
+                repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 16px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
 
-.product-visual .plate {
-    position: absolute;
-    inset: 16% 14%;
-    border-radius: 10px;
-    background:
-        radial-gradient(circle at 10% 0%, rgba(255,255,255,0.12), transparent 55%),
-        #0B1728;
-    box-shadow:
-        0 0 18px rgba(0,0,0,0.8),
-        inset 0 0 0 1px rgba(255,255,255,0.08);
-    display: grid;
-    grid-template-rows: 0.9fr 1.1fr 0.7fr 0.9fr;
-    gap: 6px;
-    padding: 8px;
-}
+        .product-visual .plate {
+            position: absolute;
+            inset: 18% 16%;
+            border-radius: 10px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(255,255,255,0.12), transparent 55%),
+                #0B1728;
+            box-shadow:
+                0 0 18px rgba(0,0,0,0.8),
+                inset 0 0 0 1px rgba(255,255,255,0.08);
+            display: grid;
+            grid-template-rows: 0.9fr 1.1fr 0.7fr 0.9fr;
+            gap: 6px;
+            padding: 8px;
+        }
 
-/* ROWS */
-.product-visual .row {
-    display: grid;
-    gap: 6px;
-}
+        .product-visual .row {
+            display: grid;
+            gap: 6px;
+        }
 
-.product-visual .back-row {
-    grid-template-columns: repeat(4, 1fr);
-}
+        .product-visual .back-row {
+            grid-template-columns: repeat(4, 1fr);
+        }
 
-.product-visual .mid-row {
-    grid-template-columns: 1.1fr repeat(3, 1fr);
-}
+        .product-visual .mid-row {
+            grid-template-columns: 1.1fr repeat(3, 1fr);
+        }
 
-.product-visual .rail-row {
-    grid-template-columns: 1fr;
-}
+        .product-visual .rail-row {
+            grid-template-columns: 1fr;
+        }
 
-.product-visual .front-row {
-    grid-template-columns: 1fr;
-}
+        .product-visual .front-row {
+            grid-template-columns: 1fr;
+        }
 
-/* ELEMENTS */
-.product-visual .well,
-.product-visual .cell,
-.product-visual .rail,
-.product-visual .bin {
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.55);
-    background: rgba(5,11,20,0.9);
-    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6);
-}
+        .product-visual .well,
+        .product-visual .cell,
+        .product-visual .rail,
+        .product-visual .bin {
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.55);
+            background: rgba(5,11,20,0.9);
+            box-shadow: inset 0 0 0 1px rgba(0,0,0,0.6);
+        }
 
-/* BACK ROW: WELLS */
-.product-visual .well {
-    border-radius: 999px;
-}
+        .product-visual .well {
+            border-radius: 999px;
+            box-shadow:
+                inset 0 0 0 1px rgba(0,0,0,0.8),
+                0 0 12px rgba(30,144,255,0.6);
+        }
 
-/* MIDDLE GRID */
-.product-visual .cell {
-    height: 100%;
-}
+        .product-visual .cell {
+            height: 100%;
+        }
 
-.product-visual .cell-tall {
-    grid-row: span 2;
-}
+        .product-visual .cell-tall {
+            grid-row: span 2;
+        }
 
-/* TOOL RAIL */
-.product-visual .rail {
-    height: 40%;
-}
+        .product-visual .rail {
+            height: 40%;
+        }
 
-/* FRONT BIN */
-.product-visual .bin {
-    height: 100%;
-    border-radius: 8px;
-}
+        .product-visual .bin {
+            height: 100%;
+            border-radius: 8px;
+        }
 
-/* LABELS */
-.product-visual .label {
-    position: absolute;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: rgba(255,255,255,0.85);
-    padding: 4px 8px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.35);
-    background: rgba(5,11,20,0.85);
-}
+        .product-visual .label {
+            position: absolute;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: rgba(255,255,255,0.85);
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            background: rgba(5,11,20,0.85);
+        }
 
-.product-visual .label-back {
-    top: 10%;
-    left: 14%;
-}
+        .product-visual .label-back {
+            top: 10%;
+            left: 14%;
+        }
 
-.product-visual .label-mid {
-    top: 42%;
-    right: 10%;
-}
+        .product-visual .label-mid {
+            top: 42%;
+            right: 10%;
+        }
 
-.product-visual .label-rail {
-    bottom: 30%;
-    left: 12%;
-}
+        .product-visual .label-rail {
+            bottom: 30%;
+            left: 12%;
+        }
 
-.product-visual .label-front {
-    bottom: 10%;
-    right: 16%;
-}
+        .product-visual .label-front {
+            bottom: 10%;
+            right: 16%;
+        }
 
-        /* COMING VISUAL: concentric arcs + node cluster */
+        .product-visual .tick {
+            position: absolute;
+            width: 26px;
+            height: 1px;
+            background: rgba(255,255,255,0.5);
+        }
+
+        .product-visual .tick.t1 {
+            top: 18%;
+            left: 8%;
+        }
+
+        .product-visual .tick.t2 {
+            bottom: 20%;
+            right: 8%;
+            width: 34px;
+        }
+
+        /* COMING VISUAL */
         .coming-visual::before {
             content: "";
             position: absolute;
@@ -568,7 +613,7 @@
         .coming-visual .node.n2 { top: 52%; left: 18%; }
         .coming-visual .node.n3 { top: 64%; left: 46%; }
 
-        /* HOW VISUAL: diagonal construction lines */
+        /* HOW VISUAL */
         .how-visual::before {
             content: "";
             position: absolute;
@@ -589,7 +634,7 @@
             transform: skewX(-10deg);
         }
 
-        /* WHO VISUAL: blueprint frame + corner brackets */
+        /* WHO VISUAL */
         .who-visual::before {
             content: "";
             position: absolute;
@@ -618,7 +663,7 @@
         .who-visual .corner.c3 { bottom: 16%; left: 14%; border-right: none; border-top: none; }
         .who-visual .corner.c4 { bottom: 16%; right: 14%; border-left: none; border-top: none; }
 
-        /* FOLLOW VISUAL: grid + offset ring */
+        /* FOLLOW VISUAL */
         .follow-visual::before {
             content: "";
             position: absolute;
@@ -743,7 +788,7 @@
             background-color: var(--roadmap-bg);
             color: white;
             padding: 40px 20px 46px;
-            margin-top: 60px;
+            margin-top: 70px;
             box-shadow: 0 18px 40px rgba(5, 20, 40, 0.6);
             position: relative;
             overflow: hidden;
@@ -760,6 +805,15 @@
             opacity: 0.5;
         }
 
+        .roadmap-strip::after {
+            content: "";
+            position: absolute;
+            inset: 10% 6%;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.18);
+            pointer-events: none;
+        }
+
         .roadmap-inner {
             max-width: 1000px;
             margin: 0 auto;
@@ -767,32 +821,48 @@
             z-index: 1;
         }
 
+        .roadmap-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
         .roadmap-title {
             font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.14em;
             opacity: 0.9;
-            margin-bottom: 6px;
         }
 
         .roadmap-sub {
             font-size: 13px;
             opacity: 0.9;
-            margin-bottom: 14px;
         }
 
         .roadmap-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 14px;
-            margin-top: 10px;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            gap: 10px;
+            margin-top: 18px;
+            position: relative;
+        }
+
+        .roadmap-node {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.7);
+            background: #0F2238;
+            margin: 0 auto 6px;
         }
 
         .roadmap-step {
             text-align: center;
-            font-size: 13px;
-            padding: 10px 8px;
-            border-radius: 999px;
+            font-size: 12px;
+            padding: 10px 8px 8px;
+            border-radius: 10px;
             border: 1px solid rgba(255,255,255,0.25);
             background: rgba(255,255,255,0.04);
         }
@@ -882,7 +952,7 @@
             margin-top: 6px;
         }
 
-        /* SPEC / PHILOSOPHY BLOCK */
+        /* ENGINEERING PHILOSOPHY */
         .spec-block {
             max-width: 1000px;
             margin: 70px auto;
@@ -918,7 +988,7 @@
 
         .spec-title {
             font-size: 18px;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
         }
@@ -948,7 +1018,7 @@
             font-size: 14px;
         }
 
-        /* TECH CREDENTIALS BLOCK */
+        /* TECH CREDENTIALS */
         .tech-block {
             max-width: 1000px;
             margin: 40px auto 80px;
@@ -1012,56 +1082,105 @@
 
         /* FOOTER */
         footer {
-            background-color: var(--navy);
+            background-color: #050B14;
             color: white;
-            padding: 30px 20px 40px;
-            text-align: center;
+            padding: 32px 20px 40px;
             margin-top: 0;
             position: relative;
             overflow: hidden;
         }
 
-        .footer-accent {
-            height: 4px;
-            background: linear-gradient(90deg, var(--accent), var(--blue));
+        .footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 22px 22px 20px;
+            border-radius: 16px;
+            background: #071426;
+            box-shadow: 0 14px 34px rgba(0,0,0,0.7);
         }
 
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-            margin: 0 10px;
+        .footer-inner::before {
+            content: "";
+            position: absolute;
+            inset: 10% 8%;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.18);
+            pointer-events: none;
+        }
+
+        .footer-inner::after {
+            content: "";
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid rgba(30,144,255,0.7);
+            top: -40px;
+            right: -20px;
+            opacity: 0.5;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+            gap: 20px;
+            align-items: center;
+        }
+
+        @media (max-width: 800px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .footer-brand {
             font-size: 14px;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .footer-brand-title {
+            font-size: 16px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
 
-        footer p {
-            margin: 6px 0;
+        .footer-brand-sub {
+            font-size: 13px;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            text-align: right;
             font-size: 13px;
         }
 
-        .footer-stamp {
-            margin-top: 10px;
+        .footer-links a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-meta {
+            margin-top: 12px;
             font-size: 11px;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
             opacity: 0.7;
         }
 
-        footer::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background:
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 22px),
-                repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 22px);
-            opacity: 0.25;
-            pointer-events: none;
+        .footer-accent-bar {
+            height: 3px;
+            width: 120px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            margin-bottom: 10px;
         }
 
-        /* STRONGER SLIDE-IN ANIMATIONS */
+        /* ANIMATIONS */
         .slide-up {
             opacity: 0;
             transform: translateY(80px);
@@ -1121,7 +1240,8 @@
         <div class="hero-inner">
             <div class="hero-copy">
                 <div class="hero-tagline">
-                    <span class="hero-tagline-bar"></span>POP BENCHLINE SYSTEM
+                    <span class="hero-tagline-bar"></span>
+                    <span class="hero-module">Module 01 — Benchline Series</span>
                 </div>
                 <h1>POP Benchline System</h1>
 
@@ -1148,8 +1268,12 @@
 
     <!-- PRODUCT LINE -->
     <div id="product" class="section slide-up">
-        <div class="section-subtitle">Product Line</div>
-        <h2>POP Benchline System</h2>
+        <div class="section-header">
+            <div class="section-module">01 — Product Line</div>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-subtitle">POP Benchline System</div>
+        <h2>The Platform We’re Building On</h2>
 
         <div class="two-column">
             <div class="text-col">
@@ -1166,47 +1290,55 @@
                 </p>
             </div>
 
-         <div class="visual-col product-visual">
-    <div class="plate">
-        <!-- BACK ROW: DEEP WELLS -->
-        <div class="row back-row">
-            <div class="well"></div>
-            <div class="well"></div>
-            <div class="well"></div>
-            <div class="well"></div>
-        </div>
+            <div class="visual-col product-visual">
+                <div class="plate">
+                    <!-- BACK ROW: DEEP WELLS -->
+                    <div class="row back-row">
+                        <div class="well"></div>
+                        <div class="well"></div>
+                        <div class="well"></div>
+                        <div class="well"></div>
+                    </div>
 
-        <!-- MIDDLE: CONTAINER GRID -->
-        <div class="row mid-row">
-            <div class="cell cell-tall"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-            <div class="cell"></div>
-        </div>
+                    <!-- MIDDLE: CONTAINER GRID -->
+                    <div class="row mid-row">
+                        <div class="cell cell-tall"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                        <div class="cell"></div>
+                    </div>
 
-        <!-- LEFT: TOOL RAIL -->
-        <div class="row rail-row">
-            <div class="rail"></div>
-            <div class="rail"></div>
-        </div>
+                    <!-- LEFT: TOOL RAIL -->
+                    <div class="row rail-row">
+                        <div class="rail"></div>
+                        <div class="rail"></div>
+                    </div>
 
-        <!-- FRONT: CATCH BIN -->
-        <div class="row front-row">
-            <div class="bin"></div>
+                    <!-- FRONT: CATCH BIN -->
+                    <div class="row front-row">
+                        <div class="bin"></div>
+                    </div>
+                </div>
+
+                <div class="label label-back">Bottle / Jar Wells</div>
+                <div class="label label-mid">Container Grid</div>
+                <div class="label label-rail">Tool Rail</div>
+                <div class="label label-front">Catch / Scrap Zone</div>
+
+                <div class="tick t1"></div>
+                <div class="tick t2"></div>
+            </div>
         </div>
     </div>
 
-    <div class="label label-back">Bottle / Jar Wells</div>
-    <div class="label label-mid">Container Grid</div>
-    <div class="label label-rail">Tool Rail</div>
-    <div class="label label-front">Catch / Scrap Zone</div>
-</div>
-
-
     <!-- COMING SOON -->
     <div id="coming" class="section slide-left">
-        <div class="section-subtitle">Coming Soon</div>
-        <h2>What’s Next</h2>
+        <div class="section-header">
+            <div class="section-module">02 — Coming Next</div>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-subtitle">Future Modules</div>
+        <h2>What’s Next For The Benchline</h2>
 
         <div class="two-column">
             <div class="visual-col coming-visual">
@@ -1233,8 +1365,12 @@
 
     <!-- HOW WE BUILD -->
     <div id="how" class="section slide-right">
-        <div class="section-subtitle">How We Build</div>
-        <h2>Built the Right Way</h2>
+        <div class="section-header">
+            <div class="section-module">03 — How We Build</div>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-subtitle">Build Philosophy</div>
+        <h2>Built The Right Way</h2>
 
         <div class="two-column">
             <div class="text-col">
@@ -1257,8 +1393,12 @@
 
     <!-- WHO I AM -->
     <div id="who" class="section slide-up">
-        <div class="section-subtitle">Who I Am</div>
-        <h2>The Person Behind Momma’s Pop Shop</h2>
+        <div class="section-header">
+            <div class="section-module">04 — Who I Am</div>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-subtitle">The Person Behind Momma’s Pop Shop</div>
+        <h2>Why This Business Exists At All</h2>
 
         <div class="two-column">
             <div class="text-col">
@@ -1291,23 +1431,46 @@
     <!-- ROADMAP -->
     <div id="roadmap" class="roadmap-strip slide-up">
         <div class="roadmap-inner">
-            <div class="roadmap-title">Roadmap</div>
-            <div class="roadmap-sub">Where we are and where we’re headed</div>
+            <div class="roadmap-header">
+                <div>
+                    <div class="roadmap-title">05 — Roadmap</div>
+                    <div class="roadmap-sub">Where we are and where we’re headed</div>
+                </div>
+            </div>
 
             <div class="roadmap-steps">
-                <div class="roadmap-step current">Concept Refinement</div>
-                <div class="roadmap-step">CAD Modeling</div>
-                <div class="roadmap-step">Prototype Testing</div>
-                <div class="roadmap-step">Early Units</div>
-                <div class="roadmap-step">Full Release</div>
+                <div class="roadmap-step current">
+                    <div class="roadmap-node"></div>
+                    Concept Refinement
+                </div>
+                <div class="roadmap-step">
+                    <div class="roadmap-node"></div>
+                    CAD Modeling
+                </div>
+                <div class="roadmap-step">
+                    <div class="roadmap-node"></div>
+                    Prototype Testing
+                </div>
+                <div class="roadmap-step">
+                    <div class="roadmap-node"></div>
+                    Early Units
+                </div>
+                <div class="roadmap-step">
+                    <div class="roadmap-node"></div>
+                    Full Release
+                </div>
             </div>
         </div>
     </div>
 
     <!-- FOLLOW SECTION -->
     <div id="follow" class="section slide-left">
-        <div class="section-subtitle">Stay Connected</div>
-        <h2>Join the Early Crew</h2>
+        <div class="section-header">
+            <div class="section-module">06 — Stay Connected</div>
+            <div class="section-line"></div>
+        </div>
+        <div class="section-subtitle">Early Crew</div>
+        <h2>Join The First Wave</h2>
 
         <div class="follow-wrapper">
             <div class="follow-grid">
@@ -1411,17 +1574,35 @@
 
     <!-- FOOTER -->
     <footer>
-        <div class="footer-accent"></div>
-        <p>&copy; 2026 Momma's Pop Shop LLC</p>
-        <p>
-            <a href="#product">Product</a> |
-            <a href="#how">How We Build</a> |
-            <a href="#who">Who I Am</a> |
-            <a href="#roadmap">Roadmap</a> |
-            <a href="#follow">Follow</a>
-        </p>
-        <div class="footer-stamp">
-            ENGINEERED • FABRICATED • BUILT WITH INTENTION
+        <div class="footer-inner">
+            <div class="footer-accent-bar"></div>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-title">Momma's Pop Shop LLC</div>
+                    <div class="footer-brand-sub">
+                        Small-batch hardware built with real engineering, real constraints, and real people in mind.
+                    </div>
+                    <div class="footer-meta">
+                        ENGINEERED • FABRICATED • BUILT WITH INTENTION
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div>
+                        <a href="#product">Product</a>
+                        <a href="#how">How We Build</a>
+                        <a href="#who">Who I Am</a>
+                        <a href="#roadmap">Roadmap</a>
+                        <a href="#follow">Follow</a>
+                    </div>
+                    <div style="margin-top:8px;">
+                        <a href="https://www.ebay.com/str/mommaspopshopllc" target="_blank">eBay Store</a> ·
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div style="margin-top:10px;font-size:11px;opacity:0.7;">
+                        &copy; 2026 Momma's Pop Shop LLC
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
@@ -1456,3 +1637,4 @@
 
 </body>
 </html>
+
