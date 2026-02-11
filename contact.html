@@ -11,6 +11,7 @@
             --light-bg: #F2F4F7;
             --card-bg: #FFFFFF;
             --accent: #FFB347;
+            --accent-soft: #FFE4C4;
         }
 
         body {
@@ -20,20 +21,48 @@
             color: #2E2E2E;
         }
 
+        /* HEADER BAR MATCHING MAIN SITE */
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        .header p {
+            margin-top: 10px;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+
+        /* CONTACT CARD */
         .container {
-            max-width: 600px;
-            margin: 60px auto;
+            max-width: 700px;
+            margin: 40px auto;
             background: var(--card-bg);
             padding: 30px 26px;
-            border-radius: 14px;
+            border-radius: 16px;
             box-shadow: 0 4px 14px rgba(0,0,0,0.08);
         }
 
         h2 {
             margin-top: 0;
             color: var(--navy);
-            font-size: 28px;
-            text-align: center;
+            font-size: 26px;
+            text-align: left;
+        }
+
+        .subtitle {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #6A6A6A;
+            margin-bottom: 20px;
         }
 
         label {
@@ -55,11 +84,11 @@
 
         textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         button {
-            margin-top: 20px;
+            margin-top: 22px;
             width: 100%;
             padding: 14px;
             border: none;
@@ -72,7 +101,7 @@
         }
 
         button:hover {
-            opacity: 0.9;
+            opacity: 0.92;
         }
 
         .back-link {
@@ -83,13 +112,25 @@
             text-decoration: none;
             font-size: 14px;
         }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 
 <body>
 
+    <!-- HEADER -->
+    <div class="header">
+        <h1>Get In Touch</h1>
+        <p>Questions, ideas, or something you want to run by us? We actually read these.</p>
+    </div>
+
+    <!-- CONTACT FORM CARD -->
     <div class="container">
-        <h2>Contact Us</h2>
+        <div class="subtitle">Contact</div>
+        <h2>Send Us a Message</h2>
 
         <form action="https://formsubmit.co/updates@mommaspopshopllc.com" method="POST">
             <input type="hidden" name="_subject" value="New Contact Form Message">
@@ -113,3 +154,4 @@
 
 </body>
 </html>
+
