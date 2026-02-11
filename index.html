@@ -213,6 +213,31 @@
 #follow {
     background-color: #FFFFFF;
 }
+/* SECTION BACKGROUNDS */
+#hero {
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    color: white;
+}
+
+#product {
+    background-color: #FFFFFF;
+}
+
+#coming {
+    background-color: #F7F9FC;
+}
+
+#how {
+    background-color: #FFFFFF;
+}
+
+#who {
+    background-color: #F7F9FC;
+}
+
+#follow {
+    background-color: #FFFFFF;
+}
         .section.alt {
             background-color: #FFFFFF;
             border-radius: 16px;
@@ -456,6 +481,30 @@
     opacity: 1;
     transform: translateY(0);
 }
+/* SLIDE-IN ANIMATIONS */
+.slide-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.slide-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.visible {
+    opacity: 1;
+    transform: translate(0,0);
+}
+
     </style>
 </head>
 
@@ -494,7 +543,7 @@
 </div>
 
  <!-- PRODUCT LINE -->
-<div id="product" class="section fade-up">
+<div id="product" class="section slide-up">
     <div class="section-subtitle">Product Line</div>
     <h2>POP Benchline System</h2>
 
@@ -674,6 +723,21 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll(".fade-up");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".slide-up, .slide-left, .slide-right");
 
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
