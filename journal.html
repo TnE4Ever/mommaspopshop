@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POP Journal — Notes From The Bench</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <meta name="description" content="POP Journal — ongoing notes, experiments, prototypes, and behind-the-scenes development of the Benchline System." />
+
+  <style>
+    :root {
+      --bg: #070b12;
+      --panel: #101623;
+      --ink: #0b111d;
+      --line: rgba(255,255,255,0.12);
+      --accent: #ffb347;
+      --accent2: #4fa8ff;
+      --text: #e8ecf5;
+      --sub: #9aa3b8;
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #151d30 0, #070b12 52%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      background: rgba(7,11,18,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+      color: var(--sub);
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto 80px;
+      padding: 0 24px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 32px 28px 40px;
+      border: 1px solid var(--line);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.55),
+        inset 0 0 0 1px rgba(255,255,255,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(79,168,255,0.12), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(255,179,71,0.12), transparent 60%);
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: 34px;
+      margin: 0 0 10px;
+      letter-spacing: 0.02em;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--sub);
+      margin: 0 0 12px;
+    }
+
+    .entry {
+      margin-top: 40px;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .entry-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent2);
+      margin-bottom: 6px;
+    }
+
+    .entry-title {
+      font-size: 22px;
+      margin: 0 0 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav-inner">
+    <div class="nav-logo">Momma's Pop Shop</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="benchline-series.html">Benchline</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="story.html">Story</a>
+      <a href="journal.html" class="active">Journal</a>
+      <a href="community.html">Community</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="panel">
+    <div class="entry-label">POP Journal</div>
+    <h1>Notes From The Bench</h1>
+    <p>
+      Ongoing development logs, experiments, failures, breakthroughs, and the geometry
+      decisions that shape the Benchline System. This isn’t marketing — it’s the
+      behind‑the‑scenes record of how the platform evolves.
+    </p>
+
+    <!-- ENTRY 1 -->
+    <div class="entry">
+      <div class="entry-label">Entry 01</div>
+      <div class="entry-title">The First Tilt That Behaved</div>
+      <p>
+        The earliest tilt prototypes were unstable. Too shallow and nothing changed.
+        Too steep and everything slid. The breakthrough came from micro‑adjustments —
+        fractions of a degree — until the geometry finally “locked in” and behaved
+        under real use.
+      </p>
+    </div>
+    <!-- ENTRY 2 -->
+    <div class="entry">
+      <div class="entry-label">Entry 02</div>
+      <div class="entry-title">Boundary Lines That Actually Worked</div>
+      <p>
+        Hard boundaries weren’t part of the original plan. They came from a simple
+        observation: operators naturally create zones, even on a flat bench. Adding
+        physical geometry to reinforce those zones reduced drift and made the bench
+        feel predictable under load.
+      </p>
+    </div>
+
+    <!-- ENTRY 3 -->
+    <div class="entry">
+      <div class="entry-label">Entry 03</div>
+      <div class="entry-title">Depth Testing Under Real Load</div>
+      <p>
+        Depth wasn’t chosen for aesthetics. It was chosen because shallow trays
+        overflowed and deep trays hid parts. The final depth came from repeated
+        stress tests — dumping, scooping, shaking, and simulating real operator
+        behavior until the geometry held up.
+      </p>
+    </div>
+
+    <!-- ENTRY 4 -->
+    <div class="entry">
+      <div class="entry-label">Entry 04</div>
+      <div class="entry-title">Why Flat Surfaces Fail</div>
+      <p>
+        Flat benches encourage piles. Once the first item gets placed, everything
+        else stacks around it. The tilt plane broke that pattern by forcing items
+        to settle into predictable positions instead of forming a heap.
+      </p>
+    </div>
+
+    <!-- ENTRY 5 -->
+    <div class="entry">
+      <div class="entry-label">Entry 05</div>
+      <div class="entry-title">The First Time a Layout Family Emerged</div>
+      <p>
+        The moment multiple operators used the same prototype, it became obvious
+        that one geometry couldn’t serve every workflow. That’s when the first
+        layout family was sketched — not as a product line, but as a response to
+        real differences in how people work.
+      </p>
+    </div>
+    <!-- ENTRY 6 -->
+    <div class="entry">
+      <div class="entry-label">Entry 06</div>
+      <div class="entry-title">Why Operators Ignore “Pretty” Solutions</div>
+      <p>
+        A lot of early concepts looked clean but failed instantly under real use.
+        Operators don’t care about aesthetics if the geometry doesn’t behave.
+        This entry marked the shift toward designing for performance first,
+        appearance second — and ironically, that’s when the system started
+        looking better anyway.
+      </p>
+    </div>
+
+    <!-- ENTRY 7 -->
+    <div class="entry">
+      <div class="entry-label">Entry 07</div>
+      <div class="entry-title">The First Time a Module Snapped Into Place</div>
+      <p>
+        The earliest modules were friction-fit and unreliable. The breakthrough
+        came from a revised boundary profile that locked components in without
+        tools or hardware. That moment defined the entire modular philosophy:
+        secure, intuitive, and fast.
+      </p>
+    </div>
+
+    <!-- ENTRY 8 -->
+    <div class="entry">
+      <div class="entry-label">Entry 08</div>
+      <div class="entry-title">Testing Geometry Under Fatigue</div>
+      <p>
+        Repetition exposes weaknesses faster than anything else. This entry
+        documented the first fatigue tests — thousands of cycles of scooping,
+        sorting, sliding, and dumping. The failures were ugly, but they shaped
+        the reinforced edges and tuned depths used today.
+      </p>
+    </div>
+
+    <!-- ENTRY 9 -->
+    <div class="entry">
+      <div class="entry-label">Entry 09</div>
+      <div class="entry-title">When the Bench Started Teaching Back</div>
+      <p>
+        At a certain point, the prototypes began revealing patterns the team
+        hadn’t noticed before — natural hand paths, preferred zones, and
+        unconscious habits. Instead of forcing a workflow, the geometry started
+        adapting to the operator. That shift changed everything.
+      </p>
+    </div>
+    <!-- ENTRY 10 -->
+    <div class="entry">
+      <div class="entry-label">Entry 10</div>
+      <div class="entry-title">The Geometry That Refused To Compromise</div>
+      <p>
+        Every time the design drifted toward convenience or aesthetics, the bench
+        punished it. This entry marked the moment the team committed fully to
+        performance-first geometry — even when it meant throwing out weeks of work.
+      </p>
+    </div>
+
+    <!-- ENTRY 11 -->
+    <div class="entry">
+      <div class="entry-label">Entry 11</div>
+      <div class="entry-title">Why “Good Enough” Wasn’t Enough</div>
+      <p>
+        Several prototypes technically worked, but none of them felt right. The
+        difference showed up in operator rhythm — the smoothness of motion, the
+        absence of micro‑friction. This entry documented the decision to keep
+        pushing until the bench felt effortless.
+      </p>
+    </div>
+
+    <!-- ENTRY 12 -->
+    <div class="entry">
+      <div class="entry-label">Entry 12</div>
+      <div class="entry-title">The First Time the System Scaled Cleanly</div>
+      <p>
+        Scaling exposed weaknesses that weren’t visible in single‑bench testing.
+        This entry captured the first successful multi‑bench deployment, where
+        geometry, boundaries, and modules behaved consistently across different
+        operators and workflows.
+      </p>
+    </div>
+
+  </div> <!-- end .panel -->
+</main>
+
+<footer style="border-top:1px solid var(--line);padding:18px 24px 26px;margin-top:40px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:flex-start;">
+    <div>
+      <div style="font-size:13px;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:4px;">
+        Momma's Pop Shop LLC
+      </div>
+      <div style="font-size:13px;color:var(--sub);">
+        POP Journal — development notes from the Benchline System.
+      </div>
+    </div>
+    <div style="font-size:13px;text-align:right;min-width:220px;">
+      <div style="margin-bottom:4px;">
+        <a href="index.html">Home</a> ·
+        <a href="product.html">Product</a> ·
+        <a href="benchline-series.html">Benchline</a> ·
+        <a href="concepts.html">Concepts</a> ·
+        <a href="engineering.html">Engineering</a>
+      </div>
+      <div style="margin-bottom:4px;">
+        <a href="story.html">Story</a> ·
+        <a href="journal.html">Journal</a> ·
+        <a href="community.html">Community</a> ·
+        <a href="roadmap.html">Roadmap</a> ·
+        <a href="contact.html">Contact</a>
+      </div>
+      <div style="margin-top:4px;">
+        <a href="https://www.ebay.com/str/mommaspopshopllc" target="_blank">eBay Store</a>
+      </div>
+      <div style="margin-top:4px;font-size:11px;color:var(--sub);">
+        &copy; 2026 Momma's Pop Shop LLC
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
