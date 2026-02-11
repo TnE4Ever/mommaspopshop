@@ -142,6 +142,134 @@
 .section p {
     margin-bottom: 1.2rem;
 }
+/* SECTION WRAPPER */
+.section {
+    max-width: 1100px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* TWO COLUMN LAYOUT */
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* STORY BLOCK */
+.story-block {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.story-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--navy);
+}
+
+/* BADGE ROW */
+.badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.badge {
+    background: var(--accent-soft);
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+/* ROADMAP STRIP */
+.roadmap-strip {
+    background: var(--roadmap-bg);
+    color: white;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+.roadmap-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.roadmap-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.roadmap-sub {
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.roadmap-steps {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.roadmap-step {
+    padding: 0.8rem 1.2rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+}
+
+.roadmap-step.current {
+    background: var(--accent);
+    color: #000;
+}
+
+/* FOLLOW GRID */
+.follow-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.follow-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.follow-note {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.follow-form input,
+.follow-form textarea {
+    width: 100%;
+    padding: 0.7rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.follow-submit {
+    margin-top: 1rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .follow-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 </head>
 
