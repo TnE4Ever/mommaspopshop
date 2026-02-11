@@ -10,6 +10,7 @@
   <meta name="keywords" content="POP Benchline System, modular bench, angled work surface, ergonomic workstation, Momma's Pop Shop" />
 
   <style>
+    /* ——— GLOBAL COLORS ——— */
     :root {
       --navy: #050b14;
       --navy-soft: #0b1728;
@@ -35,7 +36,7 @@
 
     a { text-decoration: none; color: inherit; }
 
-    /* NAV */
+    /* ——— NAVBAR ——— */
     .nav {
       position: sticky;
       top: 0;
@@ -142,7 +143,7 @@
       font-size: 15px;
     }
 
-    /* MAIN */
+    /* ——— MAIN WRAPPER ——— */
     main {
       max-width: 1120px;
       margin: 40px auto 60px;
@@ -254,7 +255,7 @@
 
     .btn-ghost:hover { background: rgba(15,23,42,0.03); }
 
-    /* ANGLED SYSTEM DIAGRAM */
+    /* ——— ANGLED SYSTEM DIAGRAM ——— */
     .angle-card {
       background: #0b1728;
       border-radius: 16px;
@@ -318,7 +319,7 @@
     .tilt-label.l1 { top: 18%; left: 10%; }
     .tilt-label.l2 { top: 22%; right: 10%; }
 
-    /* SECTIONS */
+    /* ——— SECTIONS ——— */
     .section {
       margin-top: 28px;
       padding-top: 18px;
@@ -445,7 +446,7 @@
     .future-tile.t2 { left: 40%; top: 32%; }
     .future-tile.t3 { left: 64%; top: 32%; }
 
-    /* FOOTER */
+    /* ——— FOOTER ——— */
     footer {
       max-width: 1120px;
       margin: 0 auto 40px;
@@ -457,5 +458,485 @@
       background: #020617;
       border-radius: 18px;
       padding: 18px 20px 20px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.8
-                                   
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 18px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+        .footer-inner::before {
+      content: "";
+      position: absolute;
+      inset: 10% 8%;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.4);
+      pointer-events: none;
+    }
+
+    @media (max-width: 900px) {
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .footer-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 4px;
+    }
+
+    .footer-sub {
+      font-size: 13px;
+      color: #cbd5f5;
+    }
+
+    .footer-meta {
+      margin-top: 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .footer-links {
+      text-align: right;
+      font-size: 13px;
+    }
+
+    .footer-links a {
+      color: #e5e7eb;
+      margin-left: 10px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .footer-links {
+        text-align: left;
+      }
+    }
+
+    a:focus {
+      outline: 3px solid rgba(30,144,255,0.4);
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Momma's Pop Shop</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="product.html">Product</a>
+      <a href="benchline-series.html" class="active">Benchline</a>
+      <a href="concepts.html">Concepts</a>
+      <a href="engineering.html">Engineering</a>
+      <a href="story.html">Story</a>
+      <a href="journal.html">Journal</a>
+      <a href="community.html">Community</a>
+      <a href="roadmap.html">Roadmap</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://www.ebay.com/str/mommaspopshopllc" class="nav-cta" target="_blank">eBay Store</a>
+    </nav>
+    <button id="hamburger" class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="inner">
+    <!-- HERO -->
+    <div class="section-label">POP Benchline System</div>
+    <div class="hero-row">
+      <div>
+        <div class="hero-meta">Platform • Not A Single Product</div>
+        <h1>The Bench Isn’t Flat. Your System Shouldn’t Be Either.</h1>
+        <p>
+          POP Benchline is a modular work surface platform that treats the bench as a 3D environment, not a flat sheet.
+          Layouts, modules, and extensions work together to angle, present, and organize your tools and containers so
+          they face you instead of hiding from you.
+        </p>
+        <p>
+          It’s pegboard logic brought down to the table — with geometry, tilt, and repeatable layouts designed for
+          people who actually use their bench, not just photograph it.
+        </p>
+        <div class="badge-row">
+          <span class="badge">3D Bench Logic</span>
+          <span class="badge">Angled Work Surfaces</span>
+          <span class="badge">Modular Layouts</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;">
+          <a href="product.html" class="btn btn-primary">See Layout One — POP Top</a>
+          <a href="engineering.html" class="btn btn-ghost">Engineering & Constraints</a>
+        </div>
+      </div>
+
+      <div class="angle-card">
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.16em;margin-bottom:6px;color:#9ca3af;">
+          System Geometry — Tilt‑Plane Concept
+        </div>
+        <div class="angle-visual">
+          <div class="tilt-plane"></div>
+          <div class="tilt-label l1">Angled Presentation Plane</div>
+          <div class="tilt-label l2">User‑Facing Layout</div>
+        </div>
+        <p style="font-size:12px;margin-top:10px;color:#cbd5f5;">
+          Benchline layouts are designed to lift and angle containers toward the user — turning flat storage into
+          visible, reachable, 3D work zones.
+        </p>
+      </div>
+    </div>
+
+    <!-- SECTION 1: WHAT BENCHLINE IS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">01 — What Benchline Is</div>
+        <div class="section-index">PLATFORM • NOT A ONE‑OFF</div>
+      </div>
+      <h2>A System For How You Actually Work</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            Most bench accessories are designed like flat storage: everything lives on the same plane, fighting for the
+            same space, sliding into the same mess. They look organized until you actually start working.
+          </p>
+          <p>
+            POP Benchline starts from a different assumption: your bench is a 3D environment. Your eyes, hands, and
+            tools don’t live in a flat diagram — they move through space. The system is built to respect that.
+          </p>
+          <p>
+            Benchline is:
+          </p>
+          <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+            <li>A family of layouts that define where things live.</li>
+            <li>A set of modules that add function without adding clutter.</li>
+            <li>A way to turn any table into a repeatable, ergonomic work zone.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pill">Design Intent</div>
+          <h3>Built Around Real Benches, Not Rendered Ones</h3>
+          <p>
+            The system is informed by real production environments — SMT lines, assembly benches, and shared workspaces
+            where people sit for hours and need their tools to show up the same way every time.
+          </p>
+          <p>
+            The goal isn’t to win a “desk setup” photo. The goal is to make the work easier, more repeatable, and less
+            exhausting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 3D BENCH LOGIC -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">02 — 3D Bench Logic</div>
+        <div class="section-index">TILT • DEPTH • REACH</div>
+      </div>
+      <h2>Stop Treating The Bench Like A Flat Drawing</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            In real production, parts aren’t laid out flat just because the table is. Trays are angled. Feeders are
+            tilted. Bins are racked so the contents face the operator. That’s not an accident — it’s ergonomics and
+            visibility.
+          </p>
+          <p>
+            Benchline brings that same logic to the table surface. Layouts are designed to:
+          </p>
+          <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+            <li>Angle containers toward the user so contents are visible at a glance.</li>
+            <li>Lift critical items out of the “flat clutter” zone.</li>
+            <li>Keep the front working edge clear for hands‑on work.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pill">Tilt‑Plane Principle</div>
+          <h3>Present The Work, Don’t Hide It</h3>
+          <p>
+            Benchline layouts are built around a slight, intentional angle — enough to present parts and tools toward
+            the user without turning the bench into a gimmick.
+          </p>
+          <p>
+            It’s a small geometric change with a big impact: less hunting, less neck craning, and fewer “where did that
+            go?” moments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: LAYOUTS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">03 — Layouts</div>
+        <div class="section-index">POP TOP • FUTURE VARIANTS</div>
+      </div>
+      <h2>Layouts Define The Work Zone</h2>
+      <p>
+        Each Benchline layout is a specific answer to a specific kind of work. They share a common language — tilt,
+        defined zones, and respect for the front working edge — but they’re not just size variants of the same tray.
+      </p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="pill">Layout One</div>
+          <h3>POP Top — Bottles, Jars, And Grid</h3>
+          <p>
+            A compact layout with rear wells for bottles and jars, a central grid for trays and bins, and a clean front
+            band for hands‑on work. Designed for people juggling liquids, small containers, and active tasks.
+          </p>
+          <p style="font-size:13px;margin-top:4px;">
+            See the full breakdown on <a href="product.html">product.html</a>.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill">Future Layouts</div>
+          <h3>Wide, Deep, And Task‑Specific</h3>
+          <p>
+            Future layouts will extend the same logic into wider, deeper, and more specialized footprints — from
+            electronics and assembly to packaging and prep.
+          </p>
+          <p style="font-size:13px;margin-top:4px;">
+            The goal is not “one tray for everything.” It’s a family of layouts tuned for different kinds of work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: MODULES -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">04 — Modules</div>
+        <div class="section-index">ADD FUNCTION • NOT CLUTTER</div>
+      </div>
+      <h2>Modules Snap Into The Same Logic</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            Benchline modules are designed to add function without turning the bench into a science project. They plug
+            into the same geometry and tilt logic as the base layouts.
+          </p>
+          <p>
+            Think:
+          </p>
+          <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+            <li>Accessory trays that sit at the same angle as the main layout.</li>
+            <li>Small‑parts rails that keep components visible and reachable.</li>
+            <li>Extension pieces that widen the work zone without breaking the flow.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="pill">System Behavior</div>
+          <h3>Everything Respects The Front Edge</h3>
+          <p>
+            No module is allowed to invade the front working edge. That band belongs to your hands, tools, and active
+            work — not to storage.
+          </p>
+          <p>
+            If a module can’t coexist with that rule, it doesn’t ship.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: WHY FLAT FAILS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">05 — Why Flat Tables Fail</div>
+        <div class="section-index">REALITY CHECK</div>
+      </div>
+      <h2>Flat Storage Looks Organized. It Doesn’t Work That Way.</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            Flat tables with flat organizers look great in a still photo. In motion, they fall apart. Containers slide.
+            Parts hide behind other parts. The “organized” layout collapses the moment you start actually using it.
+          </p>
+          <p>
+            Benchline is built for motion — reaching, grabbing, sorting, placing, repeating. The angled surfaces and
+            defined zones are there so the layout survives real use, not just setup.
+          </p>
+        </div>
+        <div class="card">
+          <div class="pill">Reality Over Aesthetic</div>
+          <h3>Built For The Second Hour, Not The First Photo</h3>
+          <p>
+            The system is judged by how it feels after a long session at the bench, not how it looks untouched.
+          </p>
+          <p>
+            If it only works when everything is perfectly staged, it doesn’t belong in Benchline.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ROADMAP -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">06 — Roadmap</div>
+        <div class="section-index">CONCEPT → PROTOTYPE → HARDWARE</div>
+      </div>
+      <h2>Where Benchline Goes From Here</h2>
+      <div class="future-strip">
+        <div>
+          <p>
+            Benchline is starting with POP Top — Layout One — but the system is designed to grow. As prototypes are cut,
+            abused, and refined, the layouts and modules will lock in around what actually works on real benches.
+          </p>
+          <p>
+            The roadmap includes:
+          </p>
+          <ul style="margin:6px 0 0;padding-left:18px;font-size:14px;">
+            <li>Additional layouts tuned for different work types.</li>
+            <li>Modules that extend and specialize the base surfaces.</li>
+            <li>Compatibility notes and spec sheets for real benches and tables.</li>
+          </ul>
+          <p style="margin-top:6px;">
+            You can follow the build and see what makes the cut on <a href="roadmap.html" style="color:#fbbf77;">roadmap.html</a>.
+          </p>
+        </div>
+        <div class="future-visual">
+          <div class="future-tile t1"></div>
+          <div class="future-tile t2"></div>
+          <div class="future-tile t3"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: FOLLOW / CONNECT -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-title">07 — Follow The System</div>
+        <div class="section-index">EARLY CREW</div>
+      </div>
+      <h2>Want To See Benchline Come Together?</h2>
+      <div class="two-col">
+        <div>
+          <p>
+            If you want to see how Benchline evolves — and how the tilt‑plane, 3D bench logic shows up in real hardware
+            — you can join the early crew.
+          </p>
+          <p>
+            No spam, no fake urgency. Just real updates when there’s something worth showing.
+          </p>
+          <p>
+            Build notes and deeper dives will live on <a href="journal.html">journal.html</a> and <a href="engineering.html">engineering.html</a>.
+          </p>
+        </div>
+        <div class="card">
+          <form method="post" action="https://formsubmit.co/updates@mommaspopshopllc.com">
+            <input type="hidden" name="_next" value="http://mommaspopshopllc.com/thank-you.html" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="_honey" style="display:none" />
+
+            <label for="name" style="font-size:13px;">Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="What should we call you?"
+              style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #cbd5e1;font-size:14px;margin-bottom:8px;"
+            />
+
+            <label for="email" style="font-size:13px;">Email <span style="color:#dc2626;">*</span></label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              placeholder="you@example.com"
+              style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #cbd5e1;font-size:14px;margin-bottom:8px;"
+            />
+
+            <label for="use" style="font-size:13px;">What kind of bench are you working with?</label>
+            <textarea
+              id="use"
+              name="use"
+              placeholder="Tell us a bit about your setup, your work, or what you’d want Benchline to solve."
+              style="width:100%;padding:8px 10px;border-radius:6px;border:1px solid #cbd5e1;font-size:14px;min-height:70px;resize:vertical;margin-bottom:8px;"
+            ></textarea>
+
+            <div style="font-size:11px;color:#6b7280;margin-bottom:6px;">
+              Your info is sent securely through FormSubmit.
+            </div>
+
+            <button type="submit" class="btn btn-primary">Join The Early Crew</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">Momma's Pop Shop LLC</div>
+      <div class="footer-sub">
+        Small‑batch hardware built with real constraints, real benches, and real people in mind.
+      </div>
+      <div class="footer-meta">
+        POP BENCHLINE SYSTEM • MODULAR WORK SURFACE PLATFORM
+      </div>
+    </div>
+    <div class="footer-links">
+      <div>
+        <a href="index.html">Home</a>
+        <a href="product.html">Product</a>
+        <a href="benchline-series.html">Benchline</a>
+        <a href="concepts.html">Concepts</a>
+        <a href="engineering.html">Engineering</a>
+        <a href="story.html">Story</a>
+        <a href="journal.html">Journal</a>
+        <a href="community.html">Community</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div style="margin-top:8px;">
+        <a href="https://www.ebay.com/str/mommaspopshopllc" target="_blank">eBay Store</a>
+      </div>
+      <div style="margin-top:8px;font-size:11px;color:#9ca3af;">
+        &copy; 2026 Momma's Pop Shop LLC
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const burger = document.getElementById("hamburger");
+    const drawer = document.getElementById("mobile-drawer");
+    const closeBtn = document.getElementById("drawer-close");
+
+    if (!burger || !drawer || !closeBtn) return;
+
+    function setOpen(open) {
+      drawer.classList.toggle("open", open);
+      drawer.setAttribute("aria-hidden", String(!open));
+    }
+
+    burger.addEventListener("click", () => {
+      const isOpen = drawer.classList.contains("open");
+      setOpen(!isOpen);
+    });
+
+    closeBtn.addEventListener("click", () => setOpen(false));
+
+    drawer.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+  })();
+</script>
+
+</body>
+</html>
+
