@@ -813,9 +813,10 @@
             white-space: nowrap;
         }
 
-        .exploded-label.l1 { top: 18%; left: 10%; }
-        .exploded-label.l2 { top: 40%; right: 10%; }
-        .exploded-label.l3 { bottom: 18%; left: 16%; }
+        .exploded-label.l1 { top: 16%; left: 8%; }
+        .exploded-label.l2 { top: 38%; right: 8%; }
+        .exploded-label.l3 { bottom: 18%; left: 14%; }
+        .exploded-label.l4 { bottom: 32%; right: 16%; }
 
         .exploded-tick {
             position: absolute;
@@ -823,9 +824,10 @@
             background: rgba(255,255,255,0.6);
         }
 
-        .exploded-tick.t1 { top: 22%; left: 26%; width: 40px; }
-        .exploded-tick.t2 { top: 44%; right: 26%; width: 46px; }
-        .exploded-tick.t3 { bottom: 22%; left: 30%; width: 34px; }
+        .exploded-tick.t1 { top: 20%; left: 24%; width: 42px; }
+        .exploded-tick.t2 { top: 42%; right: 24%; width: 48px; }
+        .exploded-tick.t3 { bottom: 22%; left: 28%; width: 36px; }
+        .exploded-tick.t4 { bottom: 34%; right: 22%; width: 40px; }
 
         .exploded-visual:hover .exploded-layer.top {
             transform: translateY(-18px);
@@ -919,6 +921,56 @@
             gap: 14px;
             font-size: 13px;
         }
+
+        /* HOW VISUAL */
+        .how-visual::before {
+            content: "";
+            position: absolute;
+            inset: 12% 10%;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.18) 1px, transparent 1px),
+                linear-gradient(135deg, transparent 9px, rgba(255,255,255,0.12) 9px, transparent 10px);
+            background-size: 18px 18px;
+            opacity: 0.6;
+        }
+
+        .how-visual::after {
+            content: "";
+            position: absolute;
+            inset: 26% 22%;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.35);
+            transform: skewX(-10deg);
+        }
+
+        /* WHO VISUAL */
+        .who-visual::before {
+            content: "";
+            position: absolute;
+            inset: 16% 14%;
+            border-radius: 12px;
+            border: 2px solid rgba(30,144,255,0.7);
+        }
+
+        .who-visual::after {
+            content: "";
+            position: absolute;
+            inset: 26% 22%;
+            border-radius: 12px;
+            border: 1px dashed rgba(255,255,255,0.5);
+        }
+
+        .corner {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            border: 2px solid rgba(255,255,255,0.7);
+        }
+
+        .corner.c1 { top: 16%; left: 14%; border-right: none; border-bottom: none; }
+        .corner.c2 { top: 16%; right: 14%; border-left: none; border-bottom: none; }
+        .corner.c3 { bottom: 16%; left: 14%; border-right: none; border-top: none; }
+        .corner.c4 { bottom: 16%; right: 14%; border-left: none; border-top: none; }
 
         /* ROADMAP */
         .roadmap-strip {
@@ -1642,13 +1694,15 @@
                     <div class="exploded-cell"></div>
                 </div>
 
-                <div class="exploded-label l1">Top Working Plane</div>
-                <div class="exploded-label l2">Container Logic Layer</div>
+                <div class="exploded-label l1">Bottle / Jar Wells</div>
+                <div class="exploded-label l2">Container Grid</div>
                 <div class="exploded-label l3">Bench Interface Plate</div>
+                <div class="exploded-label l4">Front Working Edge</div>
 
                 <div class="exploded-tick t1"></div>
                 <div class="exploded-tick t2"></div>
                 <div class="exploded-tick t3"></div>
+                <div class="exploded-tick t4"></div>
             </div>
         </div>
     </div>
@@ -1662,8 +1716,8 @@
                 Folding tables, spare rooms, and borrowed corners that still deserve a clean, repeatable workflow.
             </div>
             <div>
-                <strong>Electronics & repair benches</strong><br>
-                Jars of screws, trays of boards, and tools that need a defined home instead of a random pile.
+                <strong>Electronics & through‑hole work</strong><br>
+                Strips of through‑hole components, loose hardware, and boards that need defined lanes instead of a drifting pile.
             </div>
             <div>
                 <strong>Mixed‑use work surfaces</strong><br>
@@ -2018,3 +2072,4 @@
 
 </body>
 </html>
+
