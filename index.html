@@ -9,116 +9,121 @@
     <meta name="description" content="Momma’s Pop Shop builds practical, high-quality hardware with real engineering, craftsmanship, and intention. No gimmicks. No shortcuts. Just solid tools made to be used, not displayed.">
     <meta name="keywords" content="hardware, tools, engineering, fabrication, craftsmanship, modular workstation, POP Benchline System, Momma’s Pop Shop LLC">
 
-    <style>
-        :root {
-            --navy: #0A1A2F;
-            --blue: #1E90FF;
-            --light-bg: #F2F4F7;
-            --card-bg: #FFFFFF;
-            --accent: #FFB347;
-            --accent-soft: #FFE4C4;
-            --roadmap-bg: #0F2238;
-            --danger: #D9534F;
-        }
+:root {
+    --navy: #0A1A2F;
+    --blue: #1E90FF;
+    --light-bg: #F2F4F7;
+    --card-bg: #FFFFFF;
+    --accent: #FFB347;
+    --accent-soft: #FFE4C4;
+    --roadmap-bg: #0F2238;
+    --danger: #D9534F;
+}
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: var(--light-bg);
-            color: #2E2E2E;
-        }
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--light-bg);
+    color: #2E2E2E;
+}
 
-        a {
-            text-decoration: none;
-        }
+a {
+    text-decoration: none;
+}
 
-        /* NAVBAR */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background-color: #FFFFFF;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        }
+/* NAVBAR */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
 
-        .nav-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+.nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .nav-logo {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--navy);
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
+.nav-logo {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
 
-        .nav-links {
-            display: flex;
-            gap: 18px;
-            align-items: center;
-        }
+.nav-links {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
 
-        .nav-links a {
-            font-size: 14px;
-            color: #333;
-            position: relative;
-            padding-bottom: 4px;
-        }
+.nav-links a {
+    font-size: 14px;
+    color: #333;
+    position: relative;
+    padding-bottom: 4px;
+}
 
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--blue));
-            transition: width 0.2s ease-out;
-        }
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    transition: width 0.2s ease-out;
+}
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a:hover::after {
+    width: 100%;
+}
 
-        .nav-cta {
-            background: linear-gradient(90deg, var(--accent), var(--blue));
-            padding: 8px 16px;
-            border-radius: 999px;
-            font-size: 13px;
-            font-weight: bold;
-            color: #0A1A2F;
-        }
+.nav-cta {
+    background: linear-gradient(90deg, var(--accent), var(--blue));
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #0A1A2F;
+}
 
-        @media (max-width: 720px) {
-            .nav-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-        }
-        
-/* HERO BACKGROUND */
+@media (max-width: 720px) {
+    .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+}
+
+/* HERO (BLUEPRINT VERSION) */
 .hero {
     position: relative;
     padding: 6rem 2rem;
     text-align: center;
+    background: #020712;
+    color: white;
 }
 
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.06), rgba(0,0,0,0.8)),
-                repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 20px);
+    background:
+        radial-gradient(circle at top, rgba(255,255,255,0.12), transparent 55%),
+        radial-gradient(circle at bottom, rgba(30,144,255,0.35), transparent 60%),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px);
+    opacity: 0.9;
     z-index: -1;
 }
 
-/* CTA BUTTON */
 .hero-cta {
     margin-top: 1.5rem;
     padding: 0.9rem 2rem;
@@ -130,18 +135,6 @@
     display: inline-block;
 }
 
-/* HIGHLIGHT STRIP */
-.highlight-strip {
-    background: rgba(255,255,255,0.05);
-    padding: 1.5rem;
-    border-left: 4px solid #ff4f4f;
-    margin-bottom: 2rem;
-}
-
-/* SECTION SPACING */
-.section p {
-    margin-bottom: 1.2rem;
-}
 /* SECTION WRAPPER */
 .section {
     max-width: 1100px;
@@ -149,7 +142,11 @@
     padding: 0 2rem;
 }
 
-/* TWO COLUMN LAYOUT */
+.section p {
+    margin-bottom: 1.2rem;
+}
+
+/* TWO COLUMN */
 .two-column {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -171,7 +168,7 @@
     color: var(--navy);
 }
 
-/* BADGE ROW */
+/* BADGES */
 .badge-row {
     display: flex;
     flex-wrap: wrap;
@@ -187,7 +184,7 @@
     color: #333;
 }
 
-/* ROADMAP STRIP */
+/* ROADMAP */
 .roadmap-strip {
     background: var(--roadmap-bg);
     color: white;
