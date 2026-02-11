@@ -24,7 +24,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #0A1524;
+            background-color: #050B14;
             color: #2E2E2E;
             position: relative;
         }
@@ -121,8 +121,11 @@
         /* HERO */
         .hero {
             position: relative;
-            background: radial-gradient(circle at top left, #1E90FF 0%, #0A1A2F 55%, #050B14 100%);
-            padding: 96px 20px 88px;
+            background:
+                radial-gradient(circle at 10% 0%, rgba(30,144,255,0.45) 0%, transparent 55%),
+                radial-gradient(circle at 90% 100%, rgba(255,179,71,0.35) 0%, transparent 60%),
+                radial-gradient(circle at 50% 40%, #1A2C4A 0%, #050B14 60%);
+            padding: 110px 20px 96px;
             text-align: left;
             color: white;
             overflow: hidden;
@@ -135,7 +138,7 @@
             background:
                 repeating-linear-gradient(0deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px),
                 repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 22px);
-            opacity: 0.35;
+            opacity: 0.25;
             pointer-events: none;
         }
 
@@ -169,22 +172,32 @@
             }
         }
 
-        .hero h1 {
-            font-size: 40px;
+        .hero-tagline {
+            font-size: 13px;
+            opacity: 0.9;
             margin-bottom: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .hero-tagline-bar {
+            display: inline-block;
+            width: 46px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--blue));
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
         }
 
         .hero p {
             font-size: 17px;
             margin-bottom: 16px;
-        }
-
-        .hero-tagline {
-            font-size: 13px;
-            opacity: 0.9;
-            margin-bottom: 8px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
         }
 
         .hero-note {
@@ -198,14 +211,15 @@
 
         .hero-visual {
             position: relative;
-            height: 260px;
-            border-radius: 18px;
-            background: radial-gradient(circle at 20% 20%, rgba(255,179,71,0.25), transparent 55%),
-                        radial-gradient(circle at 80% 80%, rgba(30,144,255,0.35), transparent 55%),
-                        #050B14;
+            height: 280px;
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255,179,71,0.25), transparent 55%),
+                radial-gradient(circle at 80% 80%, rgba(30,144,255,0.35), transparent 55%),
+                #050B14;
             box-shadow:
                 inset 0 0 0 1px rgba(255,255,255,0.08),
-                0 22px 50px rgba(0,0,0,0.7);
+                0 26px 60px rgba(0,0,0,0.8);
             overflow: hidden;
         }
 
@@ -229,13 +243,13 @@
 
         .hero-arc {
             position: absolute;
-            width: 180px;
-            height: 180px;
+            width: 190px;
+            height: 190px;
             border-radius: 50%;
             border: 2px solid rgba(255,255,255,0.35);
             border-color: rgba(255,255,255,0.35) transparent transparent transparent;
-            top: 10%;
-            right: -10%;
+            top: 8%;
+            right: -12%;
             transform: rotate(18deg);
         }
 
@@ -254,9 +268,23 @@
             position: absolute;
             left: 10%;
             bottom: 18%;
-            width: 60%;
+            width: 64%;
             height: 1px;
             background: linear-gradient(90deg, rgba(255,255,255,0.0), rgba(255,255,255,0.7), rgba(255,255,255,0.0));
+        }
+
+        .hero-stamp {
+            position: absolute;
+            left: 10%;
+            top: 14%;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.35);
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.85);
+            background: rgba(5,11,20,0.7);
         }
 
         .button {
@@ -291,14 +319,13 @@
         .section {
             position: relative;
             max-width: 1000px;
-            margin: 50px auto;
+            margin: 60px auto;
             padding: 40px 24px;
             background-color: #FFFFFF;
             border-radius: 18px;
             box-shadow: 0 18px 40px rgba(5, 20, 40, 0.12);
         }
 
-        /* blueprint geometry backdrop */
         .section::after {
             content: "";
             position: absolute;
@@ -313,15 +340,13 @@
             border-radius: inherit;
         }
 
-        /* keep hero full-bleed */
         #hero.section {
             max-width: 100%;
-            margin: 0;
+            margin: 0 0 70px 0;
             border-radius: 0 0 26px 26px;
-            box-shadow: 0 26px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 26px 60px rgba(0,0,0,0.7);
         }
 
-        /* angled divider above each section (except hero) */
         .section:not(.hero)::before {
             content: "";
             position: absolute;
@@ -384,7 +409,7 @@
 
         /* UNIQUE GEOMETRY PER SECTION */
 
-        /* PRODUCT VISUAL: exploded rectangle + ticks */
+        /* PRODUCT VISUAL: exploded rectangle + ticks + callouts */
         .product-visual::before {
             content: "";
             position: absolute;
@@ -413,6 +438,17 @@
 
         .product-visual .tick.t1 { top: 18%; left: 10%; }
         .product-visual .tick.t2 { bottom: 22%; right: 12%; width: 34px; }
+
+        .product-visual .callout {
+            position: absolute;
+            font-size: 10px;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .product-visual .callout.c1 { top: 12%; left: 16%; }
+        .product-visual .callout.c2 { bottom: 16%; right: 16%; }
 
         /* COMING VISUAL: concentric arcs + node cluster */
         .coming-visual::before {
@@ -764,11 +800,11 @@
             margin-top: 6px;
         }
 
-        /* SPEC BLOCK */
+        /* SPEC / PHILOSOPHY BLOCK */
         .spec-block {
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 30px;
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 32px 26px 30px;
             background: #0F2238;
             color: white;
             border-radius: 16px;
@@ -800,9 +836,15 @@
 
         .spec-title {
             font-size: 18px;
-            margin-bottom: 14px;
-            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
+        }
+
+        .spec-sub {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 18px;
         }
 
         .spec-grid {
@@ -810,6 +852,80 @@
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 14px;
             font-size: 14px;
+        }
+
+        .spec-item-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            opacity: 0.7;
+            margin-bottom: 2px;
+        }
+
+        .spec-item-value {
+            font-size: 14px;
+        }
+
+        /* TECH CREDENTIALS BLOCK */
+        .tech-block {
+            max-width: 1000px;
+            margin: 40px auto 80px;
+            padding: 26px 24px 24px;
+            background: #071426;
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 18px 40px rgba(5, 20, 40, 0.7);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-block::before {
+            content: "";
+            position: absolute;
+            inset: 14% 10%;
+            border-radius: 14px;
+            border: 1px dashed rgba(255,255,255,0.22);
+            pointer-events: none;
+        }
+
+        .tech-title {
+            font-size: 14px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .tech-sub {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            font-size: 13px;
+        }
+
+        .tech-pill {
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.04);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .tech-stamp {
+            position: absolute;
+            right: 18px;
+            bottom: 16px;
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            opacity: 0.7;
         }
 
         /* FOOTER */
@@ -890,7 +1006,6 @@
             transform: translate(0,0);
         }
 
-        /* STAGGERED DELAYS */
         .section:nth-of-type(1) { transition-delay: 0.1s; }
         .section:nth-of-type(2) { transition-delay: 0.2s; }
         .section:nth-of-type(3) { transition-delay: 0.3s; }
@@ -914,7 +1029,7 @@
                 <a href="#roadmap">Roadmap</a>
                 <a href="#follow">Follow</a>
                 <a href="contact.html">Contact</a>
-                <a href="#shop" class="nav-cta">eBay Store</a>
+                <a href="https://www.ebay.com/str/mommaspopshopllc" class="nav-cta" target="_blank">eBay Store</a>
             </nav>
         </div>
     </header>
@@ -923,7 +1038,9 @@
     <div id="hero" class="section hero slide-up">
         <div class="hero-inner">
             <div class="hero-copy">
-                <div class="hero-tagline">POP BENCHLINE SYSTEM</div>
+                <div class="hero-tagline">
+                    <span class="hero-tagline-bar"></span>POP BENCHLINE SYSTEM
+                </div>
                 <h1>POP Benchline System</h1>
 
                 <p>
@@ -939,6 +1056,7 @@
             </div>
 
             <div class="hero-visual">
+                <div class="hero-stamp">ENGINEERED • BENCHLINE SERIES • POP TOP</div>
                 <div class="hero-arc"></div>
                 <div class="hero-node"></div>
                 <div class="hero-baseline"></div>
@@ -969,6 +1087,8 @@
             <div class="visual-col product-visual">
                 <div class="tick t1"></div>
                 <div class="tick t2"></div>
+                <div class="callout c1">POP TOP LAYOUT</div>
+                <div class="callout c2">BENCHLINE PLATFORM</div>
             </div>
         </div>
     </div>
@@ -1040,10 +1160,14 @@
                 </p>
                 <p>
                     Along the way, I earned a CPCU (Chartered Property Casualty Underwriter) and later moved into accounting work. That mix of craftsmanship, financial discipline, and serving people who don’t always get the easy version of life is what I bring into this business. I care about details, I care about numbers, and I care about building products that make people’s day‑to‑day lives easier.
-    </p>
-<p> Behind the scenes, the business draws on over a decade of hands-on engineering and manufacturing experience — electronics assembly, process engineering, quality improvement, and fabrication. That includes IPC‑A‑610 and IPC‑7711/21 certifications for assembly and rework. It’s real production-floor experience, and it drives the way every product here is designed, built, and evaluated.
-    </p>
- </div>
+                </p>
+                <p>
+                    Behind the scenes, the business draws on over a decade of hands-on engineering and manufacturing experience — 
+                    electronics assembly, process engineering, quality improvement, and fabrication. That includes IPC‑A‑610 and 
+                    IPC‑7711/21 certifications for assembly and rework. It’s real production-floor experience, and it drives the 
+                    way every product here is designed, built, and evaluated.
+                </p>
+            </div>
 
             <div class="visual-col who-visual">
                 <div class="corner c1"></div>
@@ -1123,15 +1247,56 @@
         </div>
     </div>
 
-    <!-- SPEC / PHILOSOPHY BLOCK -->
+    <!-- ENGINEERING PHILOSOPHY -->
     <div class="spec-block slide-up">
         <div class="spec-title">Engineering Philosophy</div>
+        <div class="spec-sub">How we think about hardware, process, and the work that happens on your bench.</div>
         <div class="spec-grid">
-            <div><strong>Principle:</strong> No Gimmicks</div>
-            <div><strong>Focus:</strong> Workflow First</div>
-            <div><strong>Material:</strong> Real Hardware</div>
-            <div><strong>Approach:</strong> Built With Intention</div>
+            <div>
+                <div class="spec-item-label">Principle</div>
+                <div class="spec-item-value">No Gimmicks</div>
+            </div>
+            <div>
+                <div class="spec-item-label">Focus</div>
+                <div class="spec-item-value">Workflow First</div>
+            </div>
+            <div>
+                <div class="spec-item-label">Material</div>
+                <div class="spec-item-value">Real Hardware</div>
+            </div>
+            <div>
+                <div class="spec-item-label">Approach</div>
+                <div class="spec-item-value">Built With Intention</div>
+            </div>
+            <div>
+                <div class="spec-item-label">Standard</div>
+                <div class="spec-item-value">Repeatable, Clean, Reliable</div>
+            </div>
+            <div>
+                <div class="spec-item-label">Bias</div>
+                <div class="spec-item-value">Production-Floor Reality</div>
+            </div>
         </div>
+    </div>
+
+    <!-- TECHNICAL CREDENTIALS -->
+    <div class="tech-block slide-up">
+        <div class="tech-title">Technical Background Utilized by This Business</div>
+        <div class="tech-sub">
+            The products here are shaped by real-world engineering and manufacturing experience — the kind that comes from 
+            building, fixing, and improving hardware in production, not just talking about it.
+        </div>
+        <div class="tech-grid">
+            <div class="tech-pill">IPC‑A‑610 Certified</div>
+            <div class="tech-pill">IPC‑7711/21 Certified</div>
+            <div class="tech-pill">10+ Years Engineering & Manufacturing</div>
+            <div class="tech-pill">Electronics Assembly & Rework</div>
+            <div class="tech-pill">Process Engineering</div>
+            <div class="tech-pill">Quality Improvement</div>
+            <div class="tech-pill">Fabrication Experience</div>
+            <div class="tech-pill">Lean, Practical Mindset</div>
+        </div>
+        <div class="tech-stamp">BENCHLINE • VERIFIED • REAL-WORLD EXPERIENCE</div>
     </div>
 
     <!-- FOOTER -->
@@ -1181,4 +1346,3 @@
 
 </body>
 </html>
-
